@@ -34,7 +34,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="main/img/logo4.png" width="150" height="54" alt="logo">
+                <img src="main/img/lo.png" style="width:70px;" alt="logo">
               </div>
               <h4>HALAMAN PENDAFTARAN</h4>
               <form method="POST" class="pt-3">
@@ -68,7 +68,7 @@
                   </button>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="http://localhost/surat-keterangan-desa/">BATAL</a>
+                  <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="http://localhost/e-surat/">BATAL</a>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Sudah memiliki akun? <a href="login.php" class="text-primary">Login</a>
@@ -94,6 +94,7 @@
         $jekel = $_POST['jekel'];
         $kota = $_POST['kota'];
         $tgl = $_POST['tgl'];
+        
 
         $sql_simpan = "INSERT INTO data_user (nik,password,hak_akses,nama,tanggal_lahir,jekel,tempat_lahir) VALUES ('$nik','$password','$hak_akses','$nama','$tgl','$jekel','$kota')";
         $query_simpan = mysqli_query($konek,$sql_simpan);

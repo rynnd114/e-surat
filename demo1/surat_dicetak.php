@@ -19,7 +19,6 @@
                                                     <th>Tanggal Request</th>
                                                     <th>NIK</th>
                                                     <th>Nama Lengkap</th>
-													<th>Keperluan</th>
                                                     <th>Request</th>
 													<th>Status</th>
 												</tr>
@@ -30,7 +29,7 @@
                                                     data_user.nik,
                                                     data_user.nama,
                                                     data_request_sktm.tanggal_request,
-                                                    data_request_sktm.keperluan,
+                                                    -- data_request_sktm.keperluan,
                                                     data_request_sktm.request,
                                                     data_request_sktm.status
                                                 FROM
@@ -42,7 +41,7 @@
                                                     data_user.nik,
                                                     data_user.nama,
                                                     data_request_skd.tanggal_request,
-                                                    data_request_skd.keperluan,
+                                                    -- data_request_skd.keperluan,
                                                     data_request_skd.request,
                                                     data_request_skd.status
                                                 FROM
@@ -54,7 +53,7 @@
                                                     data_user.nik,
                                                     data_user.nama,
                                                     data_request_sku.tanggal_request,
-                                                    data_request_sku.keperluan,
+                                                    -- data_request_sku.keperluan,
                                                     data_request_sku.request,
                                                     data_request_sku.status
                                                 FROM
@@ -66,7 +65,7 @@
                                                     data_user.nik,
                                                     data_user.nama,
                                                     data_request_skp.tanggal_request,
-                                                    data_request_skp.keperluan,
+                                                    -- data_request_skp.keperluan,
                                                     data_request_skp.request,
                                                     data_request_skp.status
                                                 FROM
@@ -82,7 +81,7 @@
                                                         $nik = $data['nik'];
                                                         $nama = $data['nama'];
 														$status = $data['status'];
-														$keperluan = $data['keperluan'];
+														// $keperluan = $data['keperluan'];
 														// $keterangan = $data['keterangan'];
                                                         // $id= $data['id_request_skd'];
                                                         $request= $data['request'];
@@ -99,7 +98,7 @@
 													<td><?php echo $format;?></td>
                                                     <td><?php echo $nik;?></td>
                                                     <td><?php echo $nama;?></td>
-													<td><?php echo $keperluan;?></td>
+													<!-- <td><?php echo $keperluan;?></td> -->
                                                     <td><?php echo $request;?></td>
 													<td class="fw-bold text-uppercase text-danger op-8"><?php echo $status;?></td>
                                                 </tr>

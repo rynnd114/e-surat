@@ -10,7 +10,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_sktm.acc,
-		data_request_sktm.keperluan,
+		-- data_request_sktm.keperluan,
 		data_request_sktm.request
 	FROM
 		data_user
@@ -21,7 +21,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_skd.acc,
-		data_request_skd.keperluan,
+		-- data_request_skd.keperluan,
 		data_request_skd.request
 	FROM
 		data_user
@@ -32,7 +32,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_skp.acc,
-		data_request_skp.keperluan,
+		-- data_request_skp.keperluan,
 		data_request_skp.request
 	FROM
 		data_user
@@ -43,7 +43,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_sku.acc,
-		data_request_sku.keperluan,
+		-- data_request_sku.keperluan,
 		data_request_sku.request
 	FROM
 		data_user
@@ -57,7 +57,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_skp.acc,
-		data_request_skp.keperluan,
+		-- data_request_skp.keperluan,
 		data_request_skp.request
 	FROM
 		data_user
@@ -68,7 +68,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_sku.acc,
-		data_request_sku.keperluan,
+		-- data_request_sku.keperluan,
 		data_request_sku.request
 	FROM
 		data_user
@@ -79,7 +79,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_skd.acc,
-		data_request_skd.keperluan,
+		-- data_request_skd.keperluan,
 		data_request_skd.request
 	FROM
 		data_user
@@ -90,7 +90,7 @@ date_default_timezone_set('Asia/Jakarta');
 		data_user.nik,
 		data_user.nama,
 		data_request_sktm.acc,
-		data_request_sktm.keperluan,
+		-- data_request_sktm.keperluan,
 		data_request_sktm.request
 	FROM
 		data_user
@@ -166,7 +166,7 @@ date_default_timezone_set('Asia/Jakarta');
                                                 <th scope="col">Tanggal ACC</th>
                                                 <th scope="col">Nik</th>
 												<th scope="col">Nama</th>
-												<th scope="col">Keperluan</th>
+												<!-- <th scope="col">Keperluan</th> -->
 												<th scope="col">Request</th>
 											</tr>
 										</thead>
@@ -179,7 +179,7 @@ date_default_timezone_set('Asia/Jakarta');
 													$nama = $data['nama'];
 													$tanggal = $data['acc'];
 													$tgl = date('d F Y', strtotime($tanggal));
-													$keperluan = $data['keperluan'];
+													// $keperluan = $data['keperluan'];
 													$request = $data['request'];
 											?>
 											<tr>
@@ -187,7 +187,7 @@ date_default_timezone_set('Asia/Jakarta');
 												<td><?php echo $tgl;?></td>
 												<td><?php echo $nik;?></td>
 												<td><?php echo $nama;?></td>
-												<td><?php echo $keperluan;?></td>
+												<!-- <td><?php echo $keperluan;?></td> -->
 												<td><?php echo $request;?></td>
 											</tr>
 											<?php

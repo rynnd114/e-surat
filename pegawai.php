@@ -35,7 +35,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="main/img/logo4.png" width="150" height="54" alt="logo">
+                <img src="main/img/lo.png" style="width:70px;" alt="logo">
               </div>
               <h4>LOGIN PEGAWAI</h4>
               <form method="POST" class="pt-3">
@@ -68,7 +68,7 @@
                   
                 </div>
                 <div class="mb-2">
-                  <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="http://localhost/surat-keterangan-desa/">BATAL</a>
+                  <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="http://localhost/e-surat/">BATAL</a>
                 </div>
                 <!-- <div class="text-center mt-4 font-weight-light">
                   Belum memiliki akun? <a href="beranda.php" class="text-primary">Buat</a>

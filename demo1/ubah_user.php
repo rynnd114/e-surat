@@ -63,8 +63,8 @@
 													<select name="status_warga" class="form-control">
 														<option disabled="" selected="">Pilih Status Warga</option>
 														<option value="Sekolah" <?php if($status_warga=="Sekolah") echo 'selected'?>>Sekolah</option>
-														<option value="Kerja" <?php if($status_warga=="Kerja") echo 'selected'?>>Kerja</option>
-														<option value="Belum Kerja" <?php if($status_warga=="Belum Kerja") echo 'selected'?>>Belum Kerja</option>
+														<option value="Kawin" <?php if($status_warga=="Kawin") echo 'selected'?>>Kawin</option>
+														<option value="Belum Kawin" <?php if($status_warga=="Belum Kawin") echo 'selected'?>>Belum Kawin</option>
 													</select>
 												</div>
 												<div class="form-group">
@@ -186,8 +186,8 @@ if(isset($_POST['ubah'])){
 													<select name="status_warga" class="form-control">
 														<option disabled="" selected="">Pilih Status Warga</option>
 														<option value="Sekolah" <?php if($status_warga=="Sekolah") echo 'selected'?>>Sekolah</option>
-														<option value="Kerja" <?php if($status_warga=="Kerja") echo 'selected'?>>Kerja</option>
-														<option value="Belum Kerja" <?php if($status_warga=="Belum Kerja") echo 'selected'?>>Belum Kerja</option>
+														<option value="Kawin" <?php if($status_warga=="Kawin") echo 'selected'?>>Kawin</option>
+														<option value="Belum Kawin" <?php if($status_warga=="Belum Kawin") echo 'selected'?>>Belum Kawin</option>
 													</select>
 												</div>
 												<div class="form-group">

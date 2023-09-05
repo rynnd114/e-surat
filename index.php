@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Pelayanan Surat Keterangan Online Kelurahan Wergu Wetan</title>
+    <title>Pelayanan Surat Keterangan Online Desa Handil TERUSAN</title>
     <!-- core CSS -->
     <link href="main/css/bootstrap.min.css" rel="stylesheet">
     <link href="main/css/font-awesome.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php"><img src="main/img/logo4.png" width="150" height="54" alt="logo"></a>
+                    <a class="navbar-brand" href="index.php"><img src="main/img/lo.png" width="60" height="60" alt="logo"></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right">
@@ -54,7 +54,7 @@
                         <li class="scroll"><a href="#features">Jadwal</a></li>
                         <li class="scroll"><a href="#services">Informasi</a></li>
                         <li class="scroll"><a href="pegawai.php">Pegawai</a></li>
-                        <li class="scroll"><a href="#get-in-touch">Contact</a></li>
+                        <li class="scroll"><a href="#get-in-touch">Lokasi</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,7 +67,7 @@
     <section id="cta2">
         <div class="container">
             <div class="text-center">
-                <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms"><span>PELAYANAN</span> SURAT KETERANGAN <br> KELURAHAN WERGU WETAN</h2>
+                <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms"><span>PELAYANAN</span> SURAT KETERANGAN <br> DESA HANDIL TERUSAN</h2>
                 <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">KLIK LOGIN UNTUK REQUEST PEMBUATAN SURAT KETERANGAN
                 <div class="row justify-content-center">
                     <div class="col-lg-12 text-center">
@@ -99,7 +99,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">SENIN - KAMIS</h4>
-                            <p>07.00 - 14.00 WIB</p>
+                            <p>08.00 - 14.00 WITA</p>
                         </div>
                     </div>
 
@@ -109,7 +109,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">JUM'AT</h4>
-                            <p>07.00 - 11.00 WIB</p>
+                            <p>08.00 - 11.00 WITA</p>
                         </div>
                     </div>
 
@@ -210,7 +210,7 @@
 
     <section id="contact">
         <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6177756555207!2d110.84666041436637!3d-6.8162569685644385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c4e731de9701%3A0xc9561da6c650e3c4!2sKantor%20Kelurahan%20Wergu%20Wetan!5e0!3m2!1sid!2sid!4v1606403274133!5m2!1sid!2sid" width="100%" height="650px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" alt="lokasi kelurahan"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.635208988939!2d117.38388570000001!3d-0.5489342999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df432bf1732b75f%3A0xbb1816dea86bb55c!2sKantor%20Desa%20Handil%20Terusan!5e0!3m2!1sid!2sid!4v1692185617615!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     <!--/#bottom-->
@@ -219,7 +219,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; <?php echo date('Y');?> Your Company. Credit by <a target="_blank" href="https://www.instagram.com/fachrishofiyyuddin/" title="Ikuti saya">fachrishofiyyuddin</a>
+                    &copy; <?php echo date('Y');?> KANTOR DESA HANDIL TERUSAN KECAMATAN ANGGANA KABUPATEN KUKAR
                 </div>
                 <div class="col-sm-6">
                     <ul class="social-icons">

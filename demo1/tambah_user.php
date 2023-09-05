@@ -46,8 +46,8 @@
 													<select name="status_warga" class="form-control">
 														<option disabled="" selected="">Pilih Status Warga</option>
 														<option value="Sekolah">Sekolah</option>
-														<option value="Kerja">Kerja</option>
-														<option value="Belum Bekerja">Belum Bekerja</option>
+														<option value="Kawin">Kawin</option>
+														<option value="Belum Kawin">Belum Kawin</option>
 													</select>
 												</div>
 												<div class="form-group">

@@ -11,6 +11,7 @@
     $jekel = $data['jekel'];
     $alamat = $data['alamat'];
     $telepon = $data['telepon'];
+    $pekerjaan = $data['pekerjaan'];
     $agama = $data['agama'];
     $status_warga = $data['status_warga'];
 
@@ -66,6 +67,11 @@
                                 <th>TELEPON</th>
                                 <td>:</td>
                                 <td><?= $telepon;?></td>
+                            </tr>
+                            <tr>
+                                <th>PEKERJAAN</th>
+                                <td>:</td>
+                                <td><?= $pekerjaan;?></td>
                             </tr>
                             <tr>
                                 <th>STATUS WARGA</th>

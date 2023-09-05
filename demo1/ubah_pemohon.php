@@ -13,6 +13,7 @@
 		$agama = $data['agama'];
 		$alamat = $data['alamat'];
 		$telepon = $data['telepon'];
+		$pekerjaan = $data['pekerjaan'];
 		$status_warga = $data['status_warga'];
 	}
 	
@@ -73,8 +74,12 @@
 													</select>
 												</div>
 												<div class="form-group">
+													<label>Pekerjaan</label>
+													<input type="text" name="pekerjaan" class="form-control" value="<?= $pekerjaan;?>" placeholder="Pekerjaan Anda..">
+												</div>
+												<div class="form-group">
 													<label for="comment">Alamat</label>
-													<textarea class="form-control" name="alamat" rows="5"><?= $alamat?></textarea>
+													<textarea class="form-control" name="alamat" rows="2"><?= $alamat?></textarea>
 												</div>				
 												<div class="form-group">
 													<label>Telepon</label>
@@ -84,9 +89,8 @@
 													<label>Status Warga</label>
 													<select name="status_warga" class="form-control">
 														<option disabled="" selected="">Pilih Status Warga</option>
-														<option value='Sekolah'>Sekolah</option>
-														<option value='Kerja'>Kerja</option>
-														<option value='Belum Bekerja'>Belum Bekerja</option>
+														<option value='Kawin'>Kawin</option>
+														<option value='Belum Kawin'>Belum Kawin</option>
 													</select>
 												</div>
 											</div>
@@ -112,6 +116,7 @@ if(isset($_POST['ubah'])){
 	$agama = $_POST['agama'];
 	$alamat = $_POST['alamat'];
 	$telepon = $_POST['telepon'];
+	$pekerjaan = $_POST['pekerjaan'];
 	$status_warga = $_POST['status_warga'];
 
 	$sql = "UPDATE data_user SET
@@ -121,6 +126,7 @@ if(isset($_POST['ubah'])){
 	jekel='$jekel',
 	agama='$agama',
 	alamat='$alamat',
+	pekerjaan='$pekerjaan',
 	telepon='$telepon',
 	status_warga='$status_warga'
 	WHERE nik=$_SESSION[nik]";

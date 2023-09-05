@@ -15,6 +15,7 @@
 		$agama = $data['agama'];
 		$jekel = $data['jekel'];
 		$alamat = $data['alamat'];
+		$pekerjaan = $data['pekerjaan'];
 		$status_warga = $data['status_warga'];
 		$nama = $data['nama'];
 		$id = $data['id_request_skd'];
@@ -87,15 +88,18 @@
 														</select>
 													</div>
 													<div class="form-group">
+													<label>Pekerjaan</label>
+													<input type="text" name="pekerjaan" class="form-control" value="<?= $pekerjaan;?>" placeholder="Pekerjaan Anda..">
+												</div>
+													<div class="form-group">
 														<label for="comment">Alamat</label>
-														<textarea class="form-control" name="alamat" rows="5"> <?php echo $alamat;?></textarea>
+														<textarea class="form-control" name="alamat" rows="2"> <?php echo $alamat;?></textarea>
 													</div>	
 													<div class="form-group">
 														<label>Status Warga</label>
 														<select name="status_warga" value="<?php echo $status_warga;?>" class="form-control">
-															<option value="Sekolah" <?php if($status_warga=="Sekolah") echo 'selected'?>>Sekolah</option>
-															<option value="Kerja" <?php if($status_warga=="Kerja") echo 'selected'?>>Kerja</option>
-															<option value="Belum Bekerja" <?php if($status_warga=="Belum Bekerja") echo 'selected'?>>Belum Bekerja</option>
+															<option value="Kawin" <?php if($status_warga=="Kawin") echo 'selected'?>>Kawin</option>
+															<option value="Belum Kawin" <?php if($status_warga=="Belum Kawin") echo 'selected'?>>Belum Kawin</option>
 														</select>
 													</div>	
 													<div class="form-group">
@@ -143,6 +147,7 @@
 		$jekel = $_POST['jekel'];
 		$agama = $_POST['agama'];
 		$alamat = $_POST['alamat'];
+		$pekerjaan = $_POST['pekerjaan'];
 		$status_warga = $_POST['status_warga'];
 		$keperluan = $_POST['keperluan'];
 		$keterangan = $_POST['keterangan'];
@@ -154,6 +159,7 @@
 		jekel='$jekel',
 		agama='$agama',
 		alamat='$alamat',
+		pekerjaan='$pekerjaan',
 		status_warga='$status_warga' WHERE nik='$nik'";
 		$query = mysqli_query($konek,$ubah);
 

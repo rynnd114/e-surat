@@ -33,7 +33,7 @@
 			<div class="logo-header" data-background-color="blue">
 				
 				<a href="#" class="logo">
-					<img src="../main/img/logo5.png" width="125" alt="navbar brand" class="navbar-brand">
+					<img src="../main/img/lo.png" width="40" alt="navbar brand" class="navbar-brand">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">

@@ -19,9 +19,8 @@
 													<tr>
 														<th>Tanggal Request</th>
 														<th>NIK</th>
-														<th>Nama Lengkap</th>
+														<th>Nama Almarhum</th>
 														<th>Status</th>
-														<th>Scan KTP</th>
 														<th>Scan KK</th>
 														<th style="width: 10%">Action</th>
 													</tr>
@@ -34,10 +33,9 @@
 															$tgl = $data['tanggal_request'];
 															$format = date('d F Y', strtotime($tgl));
 															$nik = $data['nik'];
-															$nama = $data['nama'];
+															$nama_almarhum = $data['nama_almarhum'];
 															$status = $data['status'];
 															$id= $data['id_request_skp'];
-															$ktp = $data['scan_ktp'];
 															$kk = $data['scan_kk'];
 															$id_request_skp = $data['id_request_skp'];
 	
@@ -50,9 +48,8 @@
 													<tr>
 														<td><?php echo $format;?></td>
 														<td><?php echo $nik;?></td>
-														<td><?php echo $nama;?></td>
+														<td><?php echo $nama_almarhum;?></td>
 														<td class="fw-bold text-uppercase text-success op-8"><?php echo $status;?></td>
-														<td><img src="../dataFoto/scan_ktp/<?php echo $ktp;?>" width="50" height="50" alt=""></td>
 														<td><img src="../dataFoto/scan_kk/<?php echo $kk;?>" width="50" height="50" alt=""></td>
 														<td>
 															<div class="form-button-action">

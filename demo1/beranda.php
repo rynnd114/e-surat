@@ -34,7 +34,7 @@
 						<div class="col-md-3 pr-md-0">
 								<div class="card-pricing2 card-primary">
 									<div class="pricing-header">
-										<h6 class="fw-bold text-center text-uppercase">Surat Keterangan Tidak Mampu</h6>
+										<h6 class="fw-bold text-center text-uppercase">Surat Keterangan Kelahiran</h6>
 									</div>
 									<div class="price-value">
 										<div class="value">
@@ -72,7 +72,7 @@
 						<div class="col-md-3 pr-md-0">
 								<div class="card-pricing2 card-warning">
 									<div class="pricing-header">
-										<h6 class="fw-bold text-center text-uppercase">Surat Keterangan Pamit</h6>
+										<h6 class="fw-bold text-center text-uppercase">Surat Keterangan Kematian</h6>
 									</div>
 									<div class="price-value">
 										<div class="value">
