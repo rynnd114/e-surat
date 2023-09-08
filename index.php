@@ -71,7 +71,7 @@
                 <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">KLIK LOGIN UNTUK REQUEST PEMBUATAN SURAT KETERANGAN
                 <div class="row justify-content-center">
                     <div class="col-lg-12 text-center">
-                        <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"">
+                        <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
                            <!-- Button trigger modal -->
                            <a href="login.php" type="submit" class="btn btn-primary">Login</a>
                            <a href="register.php" type="submit" class="btn btn-primary">Daftar</a>
