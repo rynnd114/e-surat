@@ -183,7 +183,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table id="add3" class="display table table-striped table-hover">
+						<table id="add5" class="display table table-striped table-hover">
 							<thead>
 								<tr>
 									<th>Tanggal Request</th>

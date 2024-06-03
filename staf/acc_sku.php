@@ -14,7 +14,7 @@
 				<div class="card-body">
 					<form method="POST">
 						<div class="table-responsive">
-							<table id="add2" class="display table table-striped table-hover">
+							<table id="add5" class="display table table-striped table-hover">
 								<thead>
 									<tr>
 										<th>Tanggal Request</th>

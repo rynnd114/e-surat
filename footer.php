@@ -126,22 +126,27 @@
 
 			// Add Row
 			$('#add1').DataTable({
-				"pageLength": 2,
+				"pageLength": 1,
 			});
 
 			// Add Row
 			$('#add2').DataTable({
-				"pageLength": 5,
+				"pageLength": 2,
 			});
 
 			// Add Row
 			$('#add3').DataTable({
-				"pageLength": 2,
+				"pageLength": 3,
 			});
 
 			// Add Row
 			$('#add4').DataTable({
-				"pageLength": 2,
+				"pageLength": 4,
+			});
+
+			// Add Row
+			$('#add5').DataTable({
+				"pageLength": 5,
 			});
 		});
 	</script>

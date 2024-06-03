@@ -164,10 +164,12 @@
 										</div>
 									</div>
 								</div>
-							</div>
+								</div>
 						</div>
 					</div>
 				</div>
+			
+
 <?php
     }elseif($hak_akses=="Kepala Desa"){
  ?>
@@ -274,6 +276,7 @@
 								</div>
 							</div>
 						</div>
+						
 						<div class="col-sm-6 col-md-3">
 							<div class="card card-stats card-round">
 								<div class="card-body">
@@ -306,8 +309,9 @@
 						</div>
 					</div>
 				</div>
+				
  <?php
     }
  ?>
  
- 
+
