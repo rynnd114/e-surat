@@ -14,7 +14,7 @@
 								<div class="card-body">
 								<form method="POST">
 									<div class="table-responsive">
-										<table id="add4" class="display table table-striped table-hover" >
+										<table id="add5" class="display table table-striped table-hover" >
 											<thead>
 												<tr>
                                                     <th>Tanggal Request</th>
@@ -91,10 +91,10 @@
 
                         if($query) {
                             echo "<script language='javascript'>swal('Selamat...', 'ACC Staf Berhasil!', 'success');</script>" ;
-                            echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_skd">';
+                            echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skd">';
                         }else{
                             echo "<script language='javascript'>swal('Gagal...', 'ACC Staf Gagal!', 'error');</script>" ;
-                            echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_skd">';
+                            echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skd">';
                         }
 
                     }

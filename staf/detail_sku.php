@@ -44,7 +44,7 @@ if (isset($_GET['id_request_sku'])) {
 								</span>
 								Ubah
 							</button>
-							<a href="?halaman=sudah_acc_sku" class="btn btn-info btn-border btn-round btn-sm">
+							<a href="?halaman=acc_sku" class="btn btn-info btn-border btn-round btn-sm">
 								Batal
 							</a>
 						</div>
@@ -273,7 +273,7 @@ if (isset($_POST['ubah'])) {
 		$quey = mysqli_query($konek, $ubah);
 		if ($quey == 1) {
 			echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
-			echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_sku">';
+			echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
 
 		}
 	} else {

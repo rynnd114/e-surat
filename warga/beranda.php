@@ -128,7 +128,7 @@
 								<div class="card card-stats card-round">
 									<div class="card-body ">
 										<div class="row align-items-center">
-											<a href="?halaman=sudah_acc_skl">
+											<a href="?halaman=acc_skl">
 												<div class="col-icon">
 													<div class="icon-big text-center icon-primary bubble-shadow-small">
 														<i class="flaticon-envelope-1"></i>
@@ -162,7 +162,7 @@
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row align-items-center">
-										<a href="?halaman=sudah_acc_sku">
+										<a href="?halaman=acc_sku">
 											<div class="col-icon">
 												<div class="icon-big text-center icon-success bubble-shadow-small">
 													<i class="flaticon-envelope-1"></i>
@@ -196,7 +196,7 @@
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row align-items-center">
-										<a href="?halaman=sudah_acc_skk">
+										<a href="?halaman=acc_skk">
 											<div class="col-icon">
 												<div class="icon-big text-center icon-warning bubble-shadow-small">
 													<i class="flaticon-envelope-1"></i>
@@ -230,7 +230,7 @@
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row align-items-center">
-										<a href="?halaman=sudah_acc_skd">
+										<a href="?halaman=acc_skd">
 											<div class="col-icon">
 												<div class="icon-big text-center icon-secondary bubble-shadow-small">
 													<i class="flaticon-envelope-1"></i>

@@ -114,10 +114,10 @@ if (isset($_POST['acc'])) {
 
 			if ($query) {
 				echo "<script language='javascript'>swal('Selamat...', 'ACC Staf Berhasil!', 'success');</script>";
-				echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_sku">';
+				echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
 			} else {
 				echo "<script language='javascript'>swal('Gagal...', 'ACC Staf Gagal!', 'error');</script>";
-				echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_sku">';
+				echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
 			}
 
 		}

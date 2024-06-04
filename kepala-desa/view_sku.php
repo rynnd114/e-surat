@@ -79,7 +79,7 @@ if (isset($_GET['id_request_sku'])) {
                     <div class="card-tools">
                         <form action="" method="POST">
                             <div class="form-group">
-                                <input type="date" name="tgl_acc" class="form-control">
+                                <input type="date" name="tgl_acc" class="form-control" value="<?php echo date('Y-m-d'); ?>">
                                 <div class="form-group">
                                     <input type="submit" name="ttd" value="ACC" class="btn btn-primary btn-sm">
                                 </div>

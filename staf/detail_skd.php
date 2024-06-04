@@ -40,7 +40,7 @@
 												</span>
 												Ubah
 												</button>
-												<a href="?halaman=sudah_acc_skd" class="btn btn-info btn-border btn-round btn-sm">
+												<a href="?halaman=acc_skd" class="btn btn-info btn-border btn-round btn-sm">
 													Batal
 												</a>
 												</div>
@@ -170,7 +170,7 @@
 		$quey = mysqli_query($konek,$ubah);
 		if($quey==1){
 			echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>" ;
-			echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_skd">';
+			echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skd">';
 
 		}
 		  }else{

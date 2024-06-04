@@ -95,16 +95,16 @@
 			  case 'belum_acc_skd';
                 include 'belum_acc_skd.php';
 			  break;
-			  case 'sudah_acc_skl';
+			  case 'acc_skl';
                 include 'acc_skl.php';
 			  break;
-			  case 'sudah_acc_sku';
+			  case 'acc_sku';
                 include 'acc_sku.php';
 			  break;
-			  case 'sudah_acc_skk';
+			  case 'acc_skk';
                 include 'acc_skk.php';
 			  break;
-			  case 'sudah_acc_skd';
+			  case 'acc_skd';
                 include 'acc_skd.php';
 			  break;
 			  case 'detail_skl';
@@ -143,11 +143,8 @@
 			  case 'ubah_skd';
                 include 'ubah_request_skd.php';
               break;
-			  case 'laporan_perbulan';
-                include 'laporan_perbulan.php';
-			  break;
-			  case 'laporan_pertahun';
-                include 'laporan_pertahun.php';
+			  case 'laporan';
+                include 'laporan.php';
               break;
               default:
                 echo "<center>HALAMAN KOSONG</center>";

@@ -28,7 +28,7 @@
               <h4>LOGIN PEGAWAI</h4>
               <form method="POST" class="pt-3">
                 <div class="form-group">
-                  <select name="hak_akses" id="" class="form-control text-uppercase">
+                  <select name="hak_akses" class="form-control text-uppercase" required>
                     <option value="" selected="selected">Login sebagai</option>
                     <?php
                     $SQL = "SELECT DISTINCT hak_akses FROM data_user WHERE hak_akses='Staf' or hak_akses='Kepala Desa'";
@@ -43,7 +43,6 @@
                     }
                     ?>
                   </select>
-
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -59,9 +58,6 @@
                   <button type="submit" name="login" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
                     LOGIN
                   </button>
-                </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-
                 </div>
                 <div class="mb-2">
                   <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="http://localhost/e-surat/">BATAL</a>
@@ -91,7 +87,11 @@
       $_SESSION['password'] = $data_login['password'];
 
       echo "<script language='javascript'>swal('Selamat...', 'Login Berhasil!', 'success');</script>";
-      echo '<meta http-equiv="refresh" content="3; url=staf/main2.php">';
+      if ($hak_akses == 'Staf') {
+        echo '<meta http-equiv="refresh" content="3; url=staf/main2.php">';
+      } elseif ($hak_akses == 'Kepala Desa') {
+        echo '<meta http-equiv="refresh" content="3; url=kepala-desa/main2.php">';
+      }
     } else {
       echo "<script language='javascript'>swal('Gagal...', 'Login Gagal', 'error');</script>";
       echo '<meta http-equiv="refresh" content="3; url=pegawai.php">';

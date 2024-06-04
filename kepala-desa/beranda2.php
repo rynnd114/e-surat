@@ -33,7 +33,7 @@
 								<div class="card card-stats card-round">
 									<div class="card-body ">
 										<div class="row align-items-center">
-											<a href="?halaman=sudah_acc_skl">
+											<a href="?halaman=acc_skl">
 												<div class="col-icon">
 													<div class="icon-big text-center icon-primary bubble-shadow-small">
 														<i class="flaticon-envelope-1"></i>
@@ -67,7 +67,7 @@
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row align-items-center">
-										<a href="?halaman=sudah_acc_sku">
+										<a href="?halaman=acc_sku">
 											<div class="col-icon">
 												<div class="icon-big text-center icon-success bubble-shadow-small">
 													<i class="flaticon-envelope-1"></i>
@@ -101,7 +101,7 @@
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row align-items-center">
-										<a href="?halaman=sudah_acc_skk">
+										<a href="?halaman=acc_skk">
 											<div class="col-icon">
 												<div class="icon-big text-center icon-warning bubble-shadow-small">
 													<i class="flaticon-envelope-1"></i>
@@ -135,7 +135,7 @@
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row align-items-center">
-										<a href="?halaman=sudah_acc_skd">
+										<a href="?halaman=acc_skd">
 											<div class="col-icon">
 												<div class="icon-big text-center icon-secondary bubble-shadow-small">
 													<i class="flaticon-envelope-1"></i>
@@ -169,6 +169,21 @@
 				</div>
 <?php
     }elseif($hak_akses=="Kepala Desa"){
+		$sql_skl = "SELECT * FROM data_request_skl WHERE status=1";
+	$query_skl = mysqli_query($konek, $sql_skl);
+	$count_skl = mysqli_num_rows($query_skl);
+
+	$sql_sku = "SELECT * FROM data_request_sku WHERE status=1";
+	$query_sku = mysqli_query($konek, $sql_sku);
+	$count_sku = mysqli_num_rows($query_sku);
+
+	$sql_skk = "SELECT * FROM data_request_skk WHERE status=1";
+	$query_skk = mysqli_query($konek, $sql_skk);
+	$count_skk = mysqli_num_rows($query_skk);
+
+	$sql_skd = "SELECT * FROM data_request_skd WHERE status=1";
+	$query_skd = mysqli_query($konek, $sql_skd);
+	$count_skd = mysqli_num_rows($query_skd);
  ?>
 				<div class="panel-header bg-primary-gradient">
 					<div class="page-inner py-5">
@@ -309,5 +324,46 @@
     }
  ?>
 
+<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Dashboard</title>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+
+	<body>
+		<div class="page-inner">
+			<canvas id="requestChart" width="400" height="200"></canvas>
+		</div>
+
+		<script>
+			var ctx = document.getElementById('requestChart').getContext('2d');
+			var requestChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['SKL', 'SKU', 'SKK', 'SKD'],
+					datasets: [{
+						label: 'Jumlah Permintaan',
+						data: [<?php echo $count_skl; ?>, <?php echo $count_sku; ?>, <?php echo $count_skk; ?>, <?php echo $count_skd; ?>],
+						backgroundColor: ['blue', 'green', 'orange', 'purple'],
+						borderColor: ['blue', 'green', 'orange', 'purple'],
+						borderWidth: 1
+					}]
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true
+						}
+					}
+				}
+			});
+		</script>
+	</body>
+
+	</html>
  
  

@@ -27,7 +27,7 @@ if (!isset($_SESSION['password']) || !isset($_SESSION['hak_akses'])) {
 				</li>
 				<?php
 				if ($hak_akses == "Staf") {
-					?>
+				?>
 					<li class="nav-item">
 						<a href="?halaman=tampil_user">
 							<i class="fas fa-user-alt"></i>
@@ -46,36 +46,11 @@ if (!isset($_SESSION['password']) || !isset($_SESSION['hak_akses'])) {
 							<p>Surat Selesai</p>
 						</a>
 					</li>
-					<?php
-				} elseif ($hak_akses == "Kepala Desa") {
-					?>
-					<li class="nav-item">
-						<a data-toggle="collapse" href="#tables">
-							<i class="fas fa-table"></i>
-							<p>Laporan</p>
-							<span class="caret"></span>
-						</a>
-						<div class="collapse" id="tables">
-							<ul class="nav nav-collapse">
-								<li>
-									<a href="?halaman=laporan_perbulan">
-										<span class="sub-item">Perbulan</span>
-									</a>
-								</li>
-								<li>
-									<a href="?halaman=laporan_pertahun">
-										<span class="sub-item">Pertahun</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<?php
+				<?php
 				}
 				?>
 				<li class="mx-4 mt-2">
-					<a href="../logout.php" class="btn btn-danger btn-block"><span class="btn-label mr-2"> <i
-								class="icon-logout"></i> </span>Logout</a>
+					<a href="../logout.php" class="btn btn-danger btn-block"><span class="btn-label mr-2"> <i class="icon-logout"></i> </span>Logout</a>
 				</li>
 			</ul>
 		</div>
@@ -98,43 +73,19 @@ if (!isset($_SESSION['password']) || !isset($_SESSION['hak_akses'])) {
 				case 'tampil_pemohon';
 					include 'tampil_pemohon.php';
 					break;
-				case 'request_skl';
-					include 'request_skl.php';
-					break;
-				case 'request_sku';
-					include 'request_sku.php';
-					break;
-				case 'request_skk';
-					include 'request_skk.php';
-					break;
-				case 'request_skd';
-					include 'request_skd.php';
-					break;
 				case 'tampil_status';
 					include 'status_request.php';
 					break;
-				case 'belum_acc_skl';
-					include 'belum_acc_skl.php';
-					break;
-				case 'belum_acc_sku';
-					include 'belum_acc_sku.php';
-					break;
-				case 'belum_acc_skk';
-					include 'belum_acc_skk.php';
-					break;
-				case 'belum_acc_skd';
-					include 'belum_acc_skd.php';
-					break;
-				case 'sudah_acc_skl';
+				case 'acc_skl';
 					include 'acc_skl.php';
 					break;
-				case 'sudah_acc_sku';
+				case 'acc_sku';
 					include 'acc_sku.php';
 					break;
-				case 'sudah_acc_skk';
+				case 'acc_skk';
 					include 'acc_skk.php';
 					break;
-				case 'sudah_acc_skd';
+				case 'acc_skd';
 					include 'acc_skd.php';
 					break;
 				case 'detail_skl';

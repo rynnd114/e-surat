@@ -13,7 +13,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table id="add1" class="display table table-striped table-hover">
+						<table id="add5" class="display table table-striped table-hover">
 							<thead>
 								<tr>
 									<th>Tanggal Request</th>
@@ -114,7 +114,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table id="add2" class="display table table-striped table-hover">
+						<table id="add5" class="display table table-striped table-hover">
 							<thead>
 								<tr>
 									<th>Tanggal Request</th>
@@ -318,7 +318,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table id="add4" class="display table table-striped table-hover">
+						<table id="add5" class="display table table-striped table-hover">
 							<thead>
 								<tr>
 									<th>Tanggal Request</th>
@@ -421,7 +421,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table id="add2" class="display table table-striped table-hover">
+						<table id="add5" class="display table table-striped table-hover">
 						<thead>
 								<tr>
 									<th>Tanggal Request</th>
