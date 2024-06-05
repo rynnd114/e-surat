@@ -106,115 +106,113 @@
 		</div>
 
 		<div class="col-md-12">
-			<div class="card">
-				<div class="card-header">
-					<div class="d-flex align-items-center">
-						<h4 class="card-title">STATUS REQUEST SURAT KETERANGAN USAHA</h4>
-					</div>
-				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table id="add5" class="display table table-striped table-hover">
-							<thead>
-								<tr>
-									<th>Tanggal Request</th>
-									<th>NIK</th>
-									<th>Nama Lengkap</th>
-									<th>Scan KTP</th>
-									<th>Scan KK</th>
-									<th>Nama Usaha</th>
-									<th>Jenis Usaha</th>
-									<th>Alamat Usaha</th>
-									<th>Status</th>
-									<th>Keterangan</th>
-									<th style="width: 10%">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								$sql = "SELECT * FROM data_request_sku natural join data_user WHERE nik=$_SESSION[nik] ORDER BY tanggal_request DESC";
-								$query = mysqli_query($konek, $sql);
-								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-									$tgl = $data['tanggal_request'];
-									$format = date('d F Y', strtotime($tgl));
-									$formatSort = date('Y-m-d H:i:s', strtotime($tgl));
-									$nik = $data['nik'];
-									$nama = $data['nama'];
-									$status = $data['status'];
-									$ktp = $data['scan_ktp_u'];
-									$kk = $data['scan_kk_u'];
-									$nama_usaha = $data['nama_usaha'];
-									$jenis_usaha = $data['jenis_usaha'];
-									$alamat_usaha = $data['alamat_usaha'];
-									$keterangan = $data['keterangan'];
-									$id_request_sku = $data['id_request_sku'];
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center">
+                <h4 class="card-title">STATUS REQUEST SURAT KETERANGAN USAHA</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="add5" class="display table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tanggal Request</th>
+                            <th>NIK</th>
+                            <th>Nama Lengkap</th>
+                            <th>Scan KTP</th>
+                            <th>Scan KK</th>
+                            <th>Nama Usaha</th>
+                            <th>Jenis Usaha</th>
+                            <th>Alamat Usaha</th>
+                            <th>Status</th>
+                            <th>Keterangan</th>
+                            <th style="width: 10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM data_request_sku natural join data_user WHERE nik=$_SESSION[nik] ORDER BY tanggal_request DESC";
+                        $query = mysqli_query($konek, $sql);
+                        while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+                            $tgl = $data['tanggal_request'];
+                            $format = date('d F Y', strtotime($tgl));
+                            $formatSort = date('Y-m-d H:i:s', strtotime($tgl));
+                            $nik = $data['nik'];
+                            $nama = $data['nama'];
+                            $status = $data['status'];
+                            $ktp = $data['scan_ktp_u'];
+                            $kk = $data['scan_kk_u'];
+                            $nama_usaha = $data['nama_usaha'];
+                            $jenis_usaha = $data['jenis_usaha'];
+                            $alamat_usaha = $data['alamat_usaha'];
+                            $keterangan = $data['keterangan'];
+                            $id_request_sku = $data['id_request_sku'];
 
-									if ($status == "1") {
-										$status = "<b style='color:green'>Sudah ACC Staf</b>";
-									} elseif ($status == "0") {
-										$status = "<b style='color:red'>BELUM ACC staf</b>";
-									} elseif ($status == "2") {
-										$status = "<b style='color:blue'>SUDAH ACC KEPALA DESA</b>";
-									} elseif ($status == "3") {
-										$status = "<b style='color:green'>SURAT SUDAH DICETAK</b>";
-									}
-									?>
-									<tr>
-										<td data-sort="<?php echo $formatSort; ?>">
-											<?php echo $format; ?>
-										</td>
-										<td>
-											<?php echo $nik; ?>
-										</td>
-										<td>
-											<?php echo $nama; ?>
-										</td>
-										<td><img src="../style/img/scan_ktp_u/<?php echo $ktp; ?>" width="50" height="50"
-												alt=""></td>
-										<td><img src="../style/img/scan_kk_u/<?php echo $kk; ?>" width="50" height="50" alt="">
-										</td>
-										<td>
-											<?php echo $nama_usaha; ?>
-										</td>
-										<td>
-											<?php echo $jenis_usaha; ?>
-										</td>
-										<td>
-											<?php echo $alamat_usaha; ?>
-										</td>
-										<td class="fw-bold text-uppercase text-danger op-8">
-											<?php echo $status; ?>
-										</td>
-										<td><i>
-												<?php echo $keterangan; ?>
-											</i></td>
-										<td>
-											<div class="form-button-action">
-												<a href="?halaman=ubah_sku&id_request_sku=<?= $id_request_sku; ?>">
-													<button type="button" data-toggle="tooltip" title=""
-														class="btn btn-link btn-primary btn-lg"
-														data-original-title="Edit Data">
-														<i class="fa fa-edit"></i>
-													</button>
-												</a>
-												<a href="?halaman=tampil_status&id_request_sku=<?= $id_request_sku; ?>">
-													<button type="button" data-toggle="tooltip" title=""
-														class="btn btn-link btn-danger" data-original-title="Hapus">
-														<i class="fa fa-times"></i>
-													</button>
-												</a>
-											</div>
-										</td>
-									</tr>
-									<?php
-								}
-								?>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
+                            if ($status == "1") {
+                                $statusText = "<b style='color:green'>Sudah ACC Staf</b>";
+                            } elseif ($status == "0") {
+                                $statusText = "<b style='color:red'>BELUM ACC staf</b>";
+                            } elseif ($status == "2") {
+                                $statusText = "<b style='color:blue'>SUDAH ACC KEPALA DESA</b>";
+                            } elseif ($status == "3") {
+                                $statusText = "<b style='color:green'>SURAT SUDAH DICETAK</b>";
+                            }
+                        ?>
+                            <tr>
+                                <td data-sort="<?php echo $formatSort; ?>">
+                                    <?php echo $format; ?>
+                                </td>
+                                <td>
+                                    <?php echo $nik; ?>
+                                </td>
+                                <td>
+                                    <?php echo $nama; ?>
+                                </td>
+                                <td><img src="../style/img/scan_ktp_u/<?php echo $ktp; ?>" width="50" height="50" alt=""></td>
+                                <td><img src="../style/img/scan_kk_u/<?php echo $kk; ?>" width="50" height="50" alt=""></td>
+                                <td>
+                                    <?php echo $nama_usaha; ?>
+                                </td>
+                                <td>
+                                    <?php echo $jenis_usaha; ?>
+                                </td>
+                                <td>
+                                    <?php echo $alamat_usaha; ?>
+                                </td>
+                                <td class="fw-bold text-uppercase text-danger op-8">
+                                    <?php echo $statusText; ?>
+                                </td>
+                                <td><i>
+                                        <?php echo $keterangan; ?>
+                                    </i></td>
+                                <td>
+                                    <div class="form-button-action">
+                                        <?php if ($status == "0") { ?>
+                                            <a href="?halaman=ubah_sku&id_request_sku=<?= $id_request_sku; ?>">
+                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Data">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </a>
+                                            <a href="?halaman=tampil_status&id_request_sku=<?= $id_request_sku; ?>">
+                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 		<div class="col-md-12">

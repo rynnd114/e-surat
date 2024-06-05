@@ -7,16 +7,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Halaman Login Pemohon</title>
-  <!-- plugins:css -->
   <link rel="stylesheet" href="../style/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../style/vendors/base/vendor.bundle.base.css">
   <link href="../main/css/sweetalert.css" rel="stylesheet" type="text/css">
-  <!-- <script src="main/js/jquery-2.1.3.min.js"></script> -->
   <script src="../main/js/sweetalert.min.js"></script>   
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
   <link rel="stylesheet" href="../main/css/style.css">
 </head>
 
@@ -47,7 +41,6 @@
                   </div>
                 </div>
                 <div class="mt-3">
-                  <!-- <a href="SBAdmin/index.html" class="btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn">LOGIN</a> -->
                   <button type="submit" name="login" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
                     LOGIN
                   </button>
@@ -66,13 +59,9 @@
           </div>
         </div>
       </div>
-      <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
 
-  <!-- login -->
   <?php
     if(isset($_POST['login'])){
       $nik = $_POST['nik'];
@@ -99,15 +88,11 @@
     }
   ?>
 
-  <!-- plugins:js -->
   <script src="../main/vendors/base/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- inject:js -->
   <script src="../main/js/off-canvas.js"></script>
   <script src="../main/js/hoverable-collapse.js"></script>
   <script src="../main/js/template.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <!-- endinject -->
   <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script> 
   <script>
     function togglePasswordVisibility() {
@@ -122,4 +107,3 @@
 </body>
 
 </html>
-<!-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "16"  -->
