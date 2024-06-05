@@ -34,49 +34,40 @@
                         <thead>
                             <tr>
                                 <th>NIK</th>
-                                <td>:</td>
-                                <td><?= $nik;?></td>
+                                <td>: <?= $nik;?></td>
                             </tr>
                             <tr>
                                 <th>NAMA</th>
-                                <td>:</td>
-                                <td><?= $nama;?></td>
+                                <td>:<?= $nama;?></td>
                             </tr>
                             <tr>
                                 <th>TTL</th>
-                                <td>:</td>
-                                <td><?= $tempat.', '.$format;?></td>
+                                <td>: <?= $tempat.', '.$format;?></td>
                             </tr>
 
                             <tr>
                                 <th>JEKEL</th>
-                                <td>:</td>
-                                <td><?= $jekel;?></td>
+                                <td>: <?= $jekel;?></td>
                             </tr>
                             <tr>
                                 <th>AGAMA</th>
-                                <td>:</td>
-                                <td><?= $agama;?></td>
+                                <td>: <?= $agama;?></td>
                             </tr>
                             <tr>
                                 <th>ALAMAT</th>
-                                <td>:</td>
-                                <td><?= $alamat;?></td>
+                                <td>: <?= $alamat;?></td>
                             </tr>
                             <tr>
                                 <th>TELEPON</th>
-                                <td>:</td>
-                                <td><?= $telepon;?></td>
+                                <td>: <?= $telepon;?></td>
                             </tr>
                             <tr>
                                 <th>PEKERJAAN</th>
-                                <td>:</td>
-                                <td><?= $pekerjaan;?></td>
+                                <td>: <?= $pekerjaan;?></td>
                             </tr>
                             <tr>
                                 <th>STATUS WARGA</th>
-                                <td>:</td>
-                                <td><?= $status_warga;?></td>
+                                <td>: <?= $status_warga;?></td>
                             </tr>
                         </thead>
                     </table>

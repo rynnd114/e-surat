@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Halaman Login Pemohon</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../main/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../main/vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../style/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../style/vendors/base/vendor.bundle.base.css">
   <link href="../main/css/sweetalert.css" rel="stylesheet" type="text/css">
   <!-- <script src="main/js/jquery-2.1.3.min.js"></script> -->
   <script src="../main/js/sweetalert.min.js"></script>   
@@ -37,7 +37,14 @@
                   <input type="text" name="nik" class="form-control form-control-xs text-bold" placeholder="NIK Anda.." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "16" required autofocus>
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" class="form-control form-control-xs" placeholder="Password Anda.." minlength="8" required autofocus>
+                  <div class="input-group">
+                    <input type="password" name="password" class="form-control form-control-xs" placeholder="Password" minlength="8" required autofocus>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-eye" onclick="togglePasswordVisibility()"></i>
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div class="mt-3">
                   <!-- <a href="SBAdmin/index.html" class="btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn">LOGIN</a> -->
@@ -102,6 +109,16 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- endinject -->
   <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script> 
+  <script>
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementsByName("password")[0];
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+  </script>
 </body>
 
 </html>

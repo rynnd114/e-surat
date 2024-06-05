@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="password" name="password" class="form-control form-control-xs" placeholder="Password" required autofocus>
+                    <input type="password" name="password" class="form-control form-control-xs" placeholder="Password" minlength="8" required autofocus>
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-eye" onclick="togglePasswordVisibility()"></i>
