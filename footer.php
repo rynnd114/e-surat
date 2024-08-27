@@ -27,58 +27,44 @@
 	<script src="../assets/js/setting-demo2.js"></script>
 	<script >
 		$(document).ready(function() {
-			$('#basic-datatables').DataTable({
-			});
+    var tableConfigs = {
+        "pageLength": 5,
+        "order": [[ 0, "desc" ]] // Jika Anda ingin semua tabel diurutkan descending secara default
+    };
 
-			$('#multi-filter-select').DataTable( {
-				"pageLength": 5,
-				initComplete: function () {
-					this.api().columns().every( function () {
-						var column = this;
-						var select = $('<select class="form-control"><option value=""></option></select>')
-						.appendTo( $(column.footer()).empty() )
-						.on( 'change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-								);
+    $('#basic-datatables').DataTable();
+    $('#multi-filter-select').DataTable({
+        ...tableConfigs,
+        "pageLength": 5, // Pengaturan spesifik untuk tabel ini
+        initComplete: function () {
+            this.api().columns().every(function () {
+                var column = this;
+                var select = $('<select class="form-control"><option value=""></option></select>')
+                    .appendTo($(column.footer()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
 
-							column
-							.search( val ? '^'+val+'$' : '', true, false )
-							.draw();
-						} );
+                        column
+                            .search(val ? '^' + val + '$' : '', true, false)
+                            .draw();
+                    });
 
-						column.data().unique().sort().each( function ( d, j ) {
-							select.append( '<option value="'+d+'">'+d+'</option>' )
-						} );
-					} );
-				}
-			});
+                column.data().unique().sort().each(function (d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>')
+                });
+            });
+        }
+    });
 
-			// Add Row
-			$('#add1').DataTable({
-				"pageLength": 1,
-			});
+    $('#add1').DataTable({ ...tableConfigs, "pageLength": 1 });
+    $('#add2').DataTable({ ...tableConfigs, "pageLength": 2 });
+    $('#add3').DataTable({ ...tableConfigs, "pageLength": 3 });
+    $('#add4').DataTable({ ...tableConfigs, "pageLength": 4 });
+    $('#add5').DataTable({ ...tableConfigs, "pageLength": 5 });
+});
 
-			// Add Row
-			$('#add2').DataTable({
-				"pageLength": 2,
-			});
-
-			// Add Row
-			$('#add3').DataTable({
-				"pageLength": 3,
-			});
-
-			// Add Row
-			$('#add4').DataTable({
-				"pageLength": 4,
-			});
-
-			// Add Row
-			$('#add5').DataTable({
-				"pageLength": 5,
-			});
-		});
 	</script>
 </body>
 </html>

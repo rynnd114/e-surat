@@ -142,7 +142,7 @@ if (!empty($data['tanggal_lahir'])) {
                     <table border="1" align="center">
                         <table border="0" align="center" style="font-family: Arial;">
                             <tr>
-                                <td><img src="../style/css/img/lo.png" width="90" height="110" alt=""></td>
+                                <td><img src="../style/img/lo.png" width="90" height="110" alt=""></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

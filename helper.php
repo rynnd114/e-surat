@@ -1,2 +1,2 @@
 <?php
-    define("BASE_URL", "http://o-food.host/");
+    define("BASE_URL", "http://localhost/surat/");

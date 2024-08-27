@@ -8,7 +8,7 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="d-flex align-items-center">
-									<h4 class="fw-bold text-uppercase"> tampil belum acc request surat keterangan domisili</h4>
+									<h4 class="fw-bold text-uppercase"> List Permintaan Persetujuan Surat Keterangan Domisili</h4>
 									</div>
 								</div>
 								<form action="" method="POST">
@@ -17,7 +17,7 @@
 											<table id="add5" class="display table table-striped table-hover" >
 												<thead>
 													<tr>
-														<th>Tanggal Request</th>
+														<th>Tanggal Pengajuan</th>
 														<th>NIK</th>
 														<th>Nama Lengkap</th>
 														<th>Status</th>
@@ -29,7 +29,7 @@
 												<tbody>
 													<?php
 														$i=1;
-														$sql = "SELECT * FROM data_request_skd natural join data_user where status=1";
+														$sql = "SELECT * FROM data_request_skd JOIN data_user ON data_request_skd.nik = data_user.nik WHERE data_request_skd.status=1";
 														$query = mysqli_query($konek,$sql);
 														while($data=mysqli_fetch_array($query,MYSQLI_BOTH)){
 															$tgl = $data['tanggal_request'];
@@ -43,9 +43,9 @@
 															$id_request_skd = $data['id_request_skd'];
 	
 															if($status=="1"){
-																$status = "Sudah ACC Staf";
+																$status = "Sudah Disetujui Staf";
 															}elseif($status=="0"){
-																$status = "BELUM ACC";
+																$status = "BELUM DISETEUJUI";
 															}
 													?>
 													<tr>

@@ -60,8 +60,8 @@ $agama = $data['agama'];
 								<div class="form-group">
 									<label>Agama</label>
 									<select name="agama_a" class="form-control">
-										<option value="">Pilih Agama Anda</option>
-										<option <?php if ($agama == 'Islam') {
+						
+										<option value="">Pilih Agama Anda</option>				<option <?php if ($agama == 'Islam') {
 											echo "selected";
 										} ?> value='Islam'>Islam
 										</option>

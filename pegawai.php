@@ -59,6 +59,9 @@
                     LOGIN
                   </button>
                 </div>
+                <div class="my-2 d-flex justify-content-between align-items-center">
+                  
+                </div>
                 <div class="mb-2">
                   <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="http://localhost/e-surat/">BATAL</a>
                 </div>

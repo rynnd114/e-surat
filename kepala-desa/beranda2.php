@@ -196,7 +196,7 @@
 				</div>
 				<div class="page-inner">
 					<!-- Card -->
-					<h4 class="page-title">TAMPIL REQUEST SURAT KETERANGAN SUDAH ACC STAF</h4>
+					<h4 class="page-title text-uppercase">Tampilkan Permintaan Surat Keterangan yang Sudah Disetujui Staf</h4>
 					<!-- Card With Icon States Background -->
 					<div class="row">
 						<div class="col-sm-6 col-md-3">

@@ -5,7 +5,7 @@
 <?php
 	if(isset($_GET['id_request_skd'])){
 		$id_request_skd=$_GET['id_request_skd'];
-		$sql = "SELECT * FROM data_request_skd natural join data_user WHERE id_request_skd='$id_request_skd'";
+		$sql = "SELECT * FROM data_request_skd JOIN data_user ON data_request_skd.nik = data_user.nik WHERE data_request_skd.id_request_skd = '$id_request_skd'";
 		$query = mysqli_query($konek,$sql);
 		$data = mysqli_fetch_array($query,MYSQLI_BOTH);
 		$nik = $data['nik'];

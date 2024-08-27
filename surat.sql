@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 03, 2024 at 02:14 AM
+-- Generation Time: Aug 16, 2024 at 01:00 AM
 -- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- PHP Version: 8.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `data_request_skd` (
   `nik` varchar(16) NOT NULL,
   `dusun` int NOT NULL,
   `handil` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `rt` int NOT NULL,
+  `rt_d` int NOT NULL,
   `tanggal_request` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `scan_ktp_d` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `scan_kk_d` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -47,8 +47,11 @@ CREATE TABLE `data_request_skd` (
 -- Dumping data for table `data_request_skd`
 --
 
-INSERT INTO `data_request_skd` (`id_request_skd`, `nik`, `dusun`, `handil`, `rt`, `tanggal_request`, `scan_ktp_d`, `scan_kk_d`, `keperluan`, `keterangan`, `request`, `status`, `acc`) VALUES
-(33, '20', 1, 'Handil A', 5, '2024-04-16 04:47:29', '20_ktp_1713242849.jpg', '20_kk_1713242849.jpg', 'beasiswa', 'Data sedang diperiksa oleh Staf', 'DOMISILI', 0, '2024-04-01');
+INSERT INTO `data_request_skd` (`id_request_skd`, `nik`, `dusun`, `handil`, `rt_d`, `tanggal_request`, `scan_ktp_d`, `scan_kk_d`, `keperluan`, `keterangan`, `request`, `status`, `acc`) VALUES
+(33, '20', 1, 'Handil A', 5, '2024-04-16 04:47:29', '20_ktp_1713242849.jpg', '20_kk_1713242849.jpg', 'beasiswa', 'Surat dicetak, bisa diambil!', 'DOMISILI', 3, '2024-07-04'),
+(36, '20', 3, 'Handil A', 5, '2024-08-13 01:51:40', '20_ktp_1723513900.jpg', '20_kk_1723513900.jpg', 'beasiswa', 'Surat dicetak, bisa diambil!', 'DOMISILI', 3, '2024-08-13'),
+(37, '20', 1, 'D', 3, '2024-08-13 02:44:57', '20_ktp_1723517097.jpg', '20_kk_1723517097.jpg', 'kerja', 'Surat dicetak, bisa diambil!', 'DOMISILI', 3, '2024-08-13'),
+(38, '20', 2, 'A', 14, '2024-08-13 03:22:48', '20_ktp_1723519368.jpg', '20_kk_1723519368.jpg', 'beasiswa', 'Surat dicetak, bisa diambil!', 'DOMISILI', 3, '2024-08-13');
 
 -- --------------------------------------------------------
 
@@ -91,7 +94,8 @@ CREATE TABLE `data_request_skk` (
 --
 
 INSERT INTO `data_request_skk` (`id_request_skk`, `nik`, `tanggal_request`, `scan_kk_k`, `keterangan`, `request`, `status`, `acc`, `nama_almarhum`, `nik_a`, `jenis_kelamin`, `tempat_lahir_a`, `tanggal_lahir_a`, `agama_a`, `anak_ke`, `nama_ayah`, `nama_ibu`, `pekerjaan_a`, `kewarganegaraan`, `alamat_a`, `tanggal_kematian`, `waktu_kematian`, `tempat_kematian`, `penyebab_kematian`, `tempat_pemakaman`, `tanggal_pemakaman`, `waktu_pemakaman`) VALUES
-(17, '20', '2024-03-13 15:32:12', '20_kk_1710344341.jpg', 'Surat dicetak, bisa diambil!', 'Kematian', 3, '2024-03-15', 'asddd', '5566', 'Laki-Laki', 'kota', '1985-11-19', 'Kristen', 2, 'yui', 'kio', 'mahasis', 'wna', 'jalaanan', '2024-03-12', '15:31:00', 'ruma', 'sakiti', 'kubura', '2024-03-13', '08:33:00');
+(17, '20', '2024-03-13 15:32:12', '20_kk_1710344341.jpg', 'Surat dicetak, bisa diambil!', 'Kematian', 3, '2024-03-15', 'asddd', '5566', 'Laki-Laki', 'kota', '1985-11-19', 'Kristen', 2, 'yui', 'kio', 'mahasis', 'wna', 'jalaanan', '2024-03-12', '15:31:00', 'ruma', 'sakiti', 'kubura', '2024-03-13', '08:33:00'),
+(20, '20', '2024-08-13 01:49:41', '20_kk_1723513781.jpg', 'Surat dicetak, bisa diambil!', 'Kematian', 3, '2024-08-13', 'wer', '63463', 'Laki-Laki', 'kota', '2024-08-13', 'Islam', 4, 'yuto', 'rgre', 'mahasiswa', 'wni', 'sse', '2024-08-13', '09:49:00', 'home', 'sicki', 'kubu', '2024-08-13', '09:49:00');
 
 -- --------------------------------------------------------
 
@@ -129,7 +133,8 @@ CREATE TABLE `data_request_skl` (
 
 INSERT INTO `data_request_skl` (`id_request_skl`, `nik`, `tanggal_request`, `scan_kk_l`, `nama_istri`, `nik_istri`, `tanggal_lahir_istri`, `tempat_lahir_istri`, `agama_istri`, `alamat_istri`, `pekerjaan_istri`, `nama_anak`, `jenis_kelamin_anak`, `tempat_lahir_anak`, `tanggal_lahir_anak`, `jam_lahir`, `anak_ke`, `request`, `keterangan`, `status`, `acc`) VALUES
 (74, '01', '2024-03-13 11:05:00', '01_.jpg', 'nanda', 18, '1987-11-13', 'kota', 'Islam', 'jalanan', 'irt', 'arnan', 'Laki-Laki', 'desa', '2017-04-20', '16:13:00', 1, 'KELAHIRAN', 'Data sedang diperiksa oleh Staf', 0, NULL),
-(77, '20', '2024-03-13 14:56:37', '20 - Arya Nanda_kk_.jpg', 'nanaa', 4634, '1987-10-28', 'kotawe', 'Islam', 'jalan jalanvvv', 'irti', 'arn', 'laki-laki', 'des', '2024-03-11', '04:09:00', 3, 'KELAHIRAN', 'Surat dicetak, bisa diambil!', 3, '2024-03-15');
+(77, '20', '2024-03-13 14:56:37', '20 - Arya Nanda_kk_.jpg', 'nanaa', 4634, '1987-10-28', 'kotawe', 'Islam', 'jalan jalanvvv', 'irti', 'arn', 'laki-laki', 'des', '2024-03-11', '04:09:00', 3, 'KELAHIRAN', 'Surat dicetak, bisa diambil!', 3, '2024-03-15'),
+(78, '20', '2024-08-13 01:18:13', '20_kk_1723511893.jpg', 'nanda', 643543, '2006-01-31', 'kota', 'Islam', 'gffhf', 'ibu rumah', 'arna', '', 'desa', '2024-08-13', '09:18:00', 5, 'KELAHIRAN', 'Surat dicetak, bisa diambil!', 3, '2024-08-13');
 
 -- --------------------------------------------------------
 
@@ -161,8 +166,8 @@ INSERT INTO `data_request_sku` (`id_request_sku`, `nik`, `tanggal_request`, `sca
 (29, '20', '2023-11-11 12:31:53', '20_.jpg', '20_.jpg', 'mcd', 'jual ayam', 'handil 3', '001', 'Surat dicetak, bisa diambil!', 'USAHA', 3, '2023-11-11'),
 (30, '20', '2023-11-13 05:55:50', '20_.jpg', '20_.jpg', 'fkjgeon', 'regperihnwen', 'eofienfe', '001', 'Surat dicetak, bisa diambil!', 'USAHA', 3, '2023-11-13'),
 (31, '20', '2023-11-13 06:01:01', '20_.jpg', '20_.jpg', 'dvdx', 'cxvx', 'xvvxz', '002', 'Surat dicetak, bisa diambil!', 'USAHA', 3, '2023-11-24'),
-(32, '20', '2023-11-24 12:41:28', '20_.jpg', '20_.jpg', 'fbdbfe', 'jual ayam', 'handil 3', '003', 'Surat sedang dalam proses cetak', 'USAHA', 2, '2023-11-26'),
-(33, '20', '2023-11-28 06:37:56', '20_.jpg', '20_.jpg', 'grfw', 'weefew', 'efwe', '003', 'Data sedang diperiksa oleh Staf', 'USAHA', 1, NULL),
+(32, '20', '2023-11-24 12:41:28', '20_.jpg', '20_.jpg', 'fbdbfe', 'jual ayam', 'handil 3', '003', 'Surat dicetak, bisa diambil!', 'USAHA', 3, '2023-11-26'),
+(33, '20', '2023-11-28 06:37:56', '20_.jpg', '20_.jpg', 'grfw', 'weefew', 'efwe', '003', 'Surat sedang dalam proses cetak', 'USAHA', 2, '2024-08-13'),
 (34, '20', '2024-01-22 10:45:25', '20_.jpg', '20_.jpg', 'riche', 'peda', 'handil 1', '002', 'Surat dicetak, bisa diambil!', 'USAHA', 3, '2024-02-01'),
 (35, '20', '2024-01-22 10:59:14', '20_ktp_1705921154.jpg', '20_kk_1705921154.jpg', 'qw', 'qp', 'po', '002', 'Surat sedang dalam proses cetak', 'USAHA', 2, '2024-03-08'),
 (36, '20', '2024-01-30 02:03:38', '20_ktp_1706580218.jpg', '20_kk_1706580218.jpg', 'mcd', 'jual ayam', 'handil 3', '007', 'Surat dicetak, bisa diambil!', 'USAHA', 3, '2024-01-30'),
@@ -172,7 +177,8 @@ INSERT INTO `data_request_sku` (`id_request_sku`, `nik`, `tanggal_request`, `sca
 (41, '20', '2024-03-13 03:36:40', '20 - Arya Nanda_.jpg', '20 - Arya Nanda_.jpg', 'polo', 'jual', 'tanju', '006', 'Data sedang diperiksa oleh Staf', 'USAHA', 0, NULL),
 (42, '01', '2024-03-13 03:53:43', '01_ktp_1710302023.jpg', '01_kk_1710302023.jpg', 'mcd', 'jual ayam', 'handil 3', '008', 'Data sedang diperiksa oleh Staf', 'USAHA', 0, NULL),
 (43, '01', '2024-03-13 03:54:20', '01 - tes_ktp_.jpg', '01 - tes_kk_.jpg', 'starbucks', 'jualan es kopi st', 'handil 4', '012', 'Data sedang diperiksa oleh Staf', 'USAHA', 0, NULL),
-(45, '6402041808020001', '2024-05-28 05:23:22', '6402041808020001 - arya_ktp_.jpg', '6402041808020001 - arya_kk_.jpg', 'kfc', 'ayam', 'tanjung ', '007', 'Data sedang diperiksa oleh Staf', 'USAHA', 0, NULL);
+(45, '6402041808020001', '2024-05-28 05:23:22', '6402041808020001 - arya_ktp_.jpg', '6402041808020001 - arya_kk_.jpg', 'kfc', 'ayam', 'tanjung ', '007', 'Data sedang diperiksa oleh Staf', 'USAHA', 0, NULL),
+(46, '20', '2024-07-04 04:59:30', '20_ktp_1720069170.jpg', '20_kk_1720069170.jpg', 'mcds', 'ayam goreng', 'handil 3', '001', 'Data sedang diperiksa oleh Staf', 'USAHA', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -230,7 +236,7 @@ INSERT INTO `data_request_surat` (`id`, `jenis_surat`, `status`, `request_date`)
 CREATE TABLE `data_user` (
   `nik` varchar(16) NOT NULL,
   `password` varchar(225) NOT NULL,
-  `hak_akses` varchar(225) NOT NULL,
+  `hak_akses` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `nama` varchar(30) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `tempat_lahir` varchar(30) NOT NULL,
@@ -239,7 +245,7 @@ CREATE TABLE `data_user` (
   `rt` int DEFAULT NULL,
   `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `telepon` varchar(13) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `pekerjaan` varchar(255) DEFAULT NULL,
+  `pekerjaan` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `status_warga` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -250,9 +256,11 @@ CREATE TABLE `data_user` (
 INSERT INTO `data_user` (`nik`, `password`, `hak_akses`, `nama`, `tanggal_lahir`, `tempat_lahir`, `jekel`, `agama`, `rt`, `alamat`, `telepon`, `pekerjaan`, `status_warga`) VALUES
 ('01', '01', 'Pemohon', 'tesee', '2006-07-13', 'kola', 'Laki-Laki', '', NULL, 'Jalan teluk bayur depan gg. 10 samping sdn 010 no.43 kel. Mangkupalas kec.Samarinda seberang', '082350680650', 'petani', 'Belum Kawin'),
 ('03', '03', 'Pemohon', 'polliii', '2012-07-07', 'miuuu', 'Laki-Laki', NULL, NULL, 'jalanjalan', NULL, NULL, 'Belum Kawin'),
+('1110', '$2y$10$sVWP.0ov7yuKaOa9Situ/OrTpKEpWnVuy3yLgCrQdnCQCo1dP5HXW', 'Pemohon', 'alkk', '2024-08-01', 'poi', 'Laki-Laki', NULL, NULL, NULL, NULL, NULL, NULL),
 ('1234567890123456', 'hanter01', 'Kepala Desa', 'arnan', '2023-09-17', 'pol', 'Laki-Laki', NULL, NULL, 'zdgd', NULL, NULL, 'Kawin'),
 ('2', 'hanter02', 'Staf', 'Nanda', '2021-10-20', 'coba', 'Perempuan', '', NULL, 'coba', '', NULL, 'Kawin'),
-('20', '20', 'Pemohon', 'Arya Nanda', '2005-07-21', 'tanjung', 'Laki-Laki', 'Kristen', NULL, ' Jalan teluk bayur depan gg. 10 samping sdn 010 no.43 ', '082350680650', 'kerja', 'belum_kawin'),
+('20', 'password20', 'Pemohon', 'Arya Nanda', '2005-07-21', 'tanjung', 'Laki-Laki', 'Islam', NULL, '     Jalan teluk bayur depan gg. 10 samping sdn 010 no.43 ', '082350680650', 'Nelayan', 'Kawin'),
+('200', '$2y$10$fF.OQhS.dWsxxbCgiPN02u0mdGI8yoQMFdtvaKWXskJOStN3qYU/a', 'Pemohon', 'ar', '2024-08-01', 'Kota Samarinda', 'Laki-Laki', NULL, NULL, NULL, NULL, NULL, NULL),
 ('30', '30', 'Pemohon', 'nanda', '2011-06-16', 'ht', 'Perempuan', NULL, NULL, 'terusan', NULL, NULL, 'Belum Kawin'),
 ('34', 'k44444rr', 'Pemohon', 'k', '4444-05-05', '20', 'Laki-Laki', NULL, NULL, NULL, NULL, NULL, NULL),
 ('6402040000000001', 'password1', 'Pemohon', 'Andi', '1990-01-01', 'Anggana', 'Laki-Laki', 'Islam', 1, 'Jl. Ahmad Yani No.1', '081234567890', 'Petani', 'Belum Kawin'),
@@ -371,25 +379,25 @@ ALTER TABLE `handil`
 -- AUTO_INCREMENT for table `data_request_skd`
 --
 ALTER TABLE `data_request_skd`
-  MODIFY `id_request_skd` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_request_skd` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `data_request_skk`
 --
 ALTER TABLE `data_request_skk`
-  MODIFY `id_request_skk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_request_skk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `data_request_skl`
 --
 ALTER TABLE `data_request_skl`
-  MODIFY `id_request_skl` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_request_skl` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `data_request_sku`
 --
 ALTER TABLE `data_request_sku`
-  MODIFY `id_request_sku` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_request_sku` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `data_request_surat`

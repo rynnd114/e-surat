@@ -1,24 +1,22 @@
 <?php include '../konek.php'; ?>
 <?php
-if (isset($_GET['id_request_skl'])) {
-    $id = $_GET['id_request_skl'];
-    $sql = "SELECT * FROM data_request_skl natural join data_user WHERE id_request_skl='$id'";
-    $query = mysqli_query($konek, $sql);
+if (isset($_GET['id_request_skd'])) {
+    $id = $_GET['id_request_skd'];
+    $sql = "SELECT * FROM data_request_skd 
+    JOIN data_user ON data_request_skd.nik = data_user.nik 
+    WHERE data_request_skd.id_request_skd = '$id'"; 
+        $query = mysqli_query($konek, $sql);
     $data = mysqli_fetch_array($query, MYSQLI_BOTH);
-    $id = $data['id_request_skl'];
     $nik = $data['nik'];
     $nama = $data['nama'];
+    $dusun = $data['dusun'];
+	$handil = $data['handil'];
+    $rt = $data['rt_d'];
     $tempat = $data['tempat_lahir'];
-    $tanggal = $data['tanggal_lahir'];
+    $tgl = $data['tanggal_lahir'];
     $tgl2 = $data['tanggal_request'];
     $format1 = date('Y', strtotime($tgl2));
-    // Make sure $data['tanggal_lahir'] is not null and is a valid date format
-    if (!empty($data['tanggal_lahir'])) {
-        $tanggal = $data['tanggal_lahir'];
-        $format2 = date('d-m-Y', strtotime($tanggal));
-    } else {
-        $format2 = "Invalid Date"; // Handle the case when $tgl is null or invalid
-    }
+    $format2 = date('d-m-Y', strtotime($tgl));
     $format3 = date('d F Y', strtotime($tgl2));
     $format5 = date('F Y', strtotime($tgl2));
     $format5 = str_replace(
@@ -27,66 +25,29 @@ if (isset($_GET['id_request_skl'])) {
         $format5
     );
     $format6 = date('m/Y', strtotime($tgl2));
-
-    // Mendapatkan hari dari tanggal lahir anak
-    $tanggal_lahir_anak = $data['tanggal_lahir_anak'];
-    $format7 = date('l', strtotime($tanggal_lahir_anak));
-
-    // Konversi nama hari ke dalam bahasa Indonesia
-    $format7 = str_replace(
-        array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
-        array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'),
-        $format7
-    );
-
-    $pekerjaan = $data['pekerjaan'];
     $agama = $data['agama'];
+    $pekerjaan = $data['pekerjaan'];
     $jekel = $data['jekel'];
     $nama = $data['nama'];
     $alamat = $data['alamat'];
     $status_warga = $data['status_warga'];
     $request = $data['request'];
+    $keperluan = $data['keperluan'];
     $acc = $data['acc'];
-    $format4 = '';
-    if ($acc !== null) {
-        $dateTime = new DateTime($acc);
-        $format4 = $dateTime->format('d F Y');
-
-        $monthTranslations = array(
-            'January' => 'Januari',
-            'February' => 'Februari',
-            'March' => 'Maret',
-            'April' => 'April',
-            'May' => 'Mei',
-            'June' => 'Juni',
-            'July' => 'Juli',
-            'August' => 'Agustus',
-            'September' => 'September',
-            'October' => 'Oktober',
-            'November' => 'November',
-            'December' => 'Desember'
-        );
-
-        $format4 = strtr($format4, $monthTranslations);
-    } else {
+    $format4 = date('d F Y', strtotime($acc));
+    if ($format4 == 0) {
         $format4 = "kosong";
+    } elseif ($format4 == 1) {
+        $format4;
+    } else {
+        $format4 = date('d F Y', strtotime($acc));
+        $format4 = str_replace(
+            array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+            array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'),
+            $format4
+        );
     }
-    $nik_istri = $data['nik_istri'];
-    $nama_istri = $data['nama_istri'];
-    $pekerjaan_istri = $data['pekerjaan_istri'];
-    $tempat_lahir_istri = $data['tempat_lahir_istri'];
-    $tanggal_lahir_istri = $data['tanggal_lahir_istri'];
-    $agama_istri = $data['agama_istri'];
-    $alamat_istri = $data['alamat_istri'];
-    $nama_anak = $data['nama_anak'];
-    $jenis_kelamin_anak = $data['jenis_kelamin_anak'];
-    $tempat_lahir_anak = $data['tempat_lahir_anak'];
-    $tanggal_lahir_anak = $data['tanggal_lahir_anak'];
-    $jam_lahir = $data['jam_lahir'];
-    list($jam, $menit, $detik) = explode(":", $jam_lahir);
-    $waktu_lahir = $jam . '.' . $menit . ' wita';
-    $anak_ke = $data['anak_ke'];
-    $kk = $data['scan_kk_l'];
+
 }
 ?>
 <!DOCTYPE html>
@@ -95,7 +56,7 @@ if (isset($_GET['id_request_skl'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CETAK SKL</title>
+    <title>CETAK SKD</title>
 </head>
 
 <body>
@@ -188,17 +149,19 @@ if (isset($_GET['id_request_skl'])) {
         </tr>
     </table>
     <br>
+    <br>
     <table border="0" style="margin-left: 90px; font-family: Arial;">
         <tr>
             <td>
-                Yang bertanda tangan di bawah ini Kepala Desa Handil Terusan Kecamatan
-                Anggana menerangkan bahwa : </td>
+                Kepala Desa Handil Terusan,menerangkan dengan sebenarnya bahwa :
+            </td>
         </tr>
     </table>
     <br>
     <table border="0" style="margin-left: 90px; font-family: Arial;">
+
         <tr>
-            <td><b>Nama</b></td>
+            <td>Nama</td>
             <td>:</td>
             <td style="text-transform: uppercase;">
                 <b>
@@ -207,18 +170,37 @@ if (isset($_GET['id_request_skl'])) {
             </td>
         </tr>
         <tr>
-            <td>Tempat dan tanggal lahir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin</td>
+            <td>:</td>
+            <td>
+                <?php echo $jekel; ?>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Tempat /Tanggal Lahir</td>
             <td>:</td>
             <td>
                 <?php echo $tempat . ", " . $format2; ?>
             </td>
         </tr>
         <tr>
-            <td>NIK</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Status </td>
             <td>:</td>
             <td>
-                <?php echo $nik; ?>
+                <?php echo $status_warga; ?>
             </td>
+        </tr>
+        <tr>
+            <td></td>
         </tr>
         <tr>
             <td>Agama</td>
@@ -228,11 +210,27 @@ if (isset($_GET['id_request_skl'])) {
             </td>
         </tr>
         <tr>
+            <td></td>
+        </tr>
+        <tr>
             <td>Pekerjaan</td>
             <td>:</td>
             <td>
                 <?php echo $pekerjaan; ?>
             </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>No. NIK</td>
+            <td>:</td>
+            <td>
+                <?php echo $nik; ?>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
         </tr>
         <tr>
             <td>Alamat</td>
@@ -241,117 +239,38 @@ if (isset($_GET['id_request_skl'])) {
                 <?php echo $alamat; ?>
             </td>
         </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Keterangan</td>
+            <td>:</td>
+        </tr>
     </table>
     <br>
-    <table border="0" style="margin-left: 90px; font-family: Arial;">
+    <table border="0" style="margin-left: 90px; margin-right: 15px;">
         <tr>
-            <td><b>Nama</b></td>
-            <td>:</td>
-            <td style="text-transform: uppercase;"><b>
-                    <?php echo $nama_istri; ?>
-                </b></td>
-        </tr>
-        <tr>
-            <td>Tempat dan tanggal lahir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>:</td>
-            <td>
-                <?php echo $tempat_lahir_istri . ", " . $tanggal_lahir_istri; ?>
-            </td>
-        </tr>
-        <tr>
-            <td>NIK</td>
-            <td>:</td>
-            <td>
-                <?php echo $nik_istri; ?>
-            </td>
-        </tr>
-        <tr>
-            <td>Agama</td>
-            <td>:</td>
-            <td>
-                <?php echo $agama_istri; ?>
-            </td>
-        </tr>
-        <tr>
-            <td>Pekerjaan</td>
-            <td>:</td>
-            <td>
-                <?php echo $pekerjaan_istri; ?>
-            </td>
-        </tr>
-        <tr>
-            <td>Alamat</td>
-            <td>:</td>
-            <td>
-                <?php echo $alamat_istri; ?>
-            </td>
-        </tr>
-    </table>
-    
-    <table border="0" style="margin-left: 90px; margin-right: 50px;">
-        <tr>
-            <td style="font-size: 16px; font-family: Arial; text-align: justify;">
-                Bahwa keluarga tersebut di atas telah melahirkan seorang anak <b><?php echo $jenis_kelamin_anak; ?></b>
-                dengan pertolongan seorang:
+            <td style="font-size: 16px; font-family: Arial; text-align: justify; line-height: 2.0;">
+                Yang bersangkutan di atas benar warga/penduduk Desa Handil Terusan dan
+                berdomisili di wilayah Handil <?php echo $handil; ?> RT. <?php echo $rt; ?> Dusun <?php echo $dusun; ?> Desa Handil Terusan Kecamatan
+                Anggana Kabupaten Kutai Kartanegara. Surat keterangan domisili ini berlaku
+                selama (6 bulan) mulai diterbitkan sampai dengan bulan
+                <?php echo $format5; ?>.
+                <br>
+                Demikian surat keterangan ini diberikan untuk dapat dipergunakan sebagaimana semestinya.
             </td>
         </tr>
     </table>
     <br>
-    <table border="0" style="margin-left: 90px; font-family: Arial;">
-        <tr>
-            <td><b>Nama Bayi / Anak</b></td>
-            <td>:</td>
-            <td style="text-transform: uppercase;"><b>
-                    <?php echo $nama_anak; ?>
-                </b></td>
-        </tr>
-        <tr>
-            <td>Tempat dan tanggal lahir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>:</td>
-            <td>
-                <?php echo $tempat_lahir_anak . ", " . $tanggal_lahir_anak; ?>
-            </td>
-        </tr>
-        <tr>
-            <td>Hari</td>
-            <td>:</td>
-            <td>
-                <?php echo $format7; ?>
-            </td>
-        </tr>
-        <tr>
-            <td>Jam</td>
-            <td>:</td>
-            <td>
-                <?php echo $waktu_lahir; ?>
-            </td>
-        </tr>
-        <tr>
-            <td>Anak Ke</td>
-            <td>:</td>
-            <td>
-                <?php echo $anak_ke; ?>
-            </td>
-        </tr>
-    </table>
-    <br>
-    <table border="0" style="font-size: 16px; font-family:arial; margin-left: 90px; margin-right: 10px;">
-        <tr>
-            <td>Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana mestinya.
-            </td>
-        </tr>
-    </table>
-
     <br>
     <table border="0" align="right"
-        style=" margin-right: 50px; font-size: 16px; font-family: Arial; text-align: justify;">
+        style=" font-size: 16px; font-family: Arial; text-align: justify; line-height: 2.0;">
         <tr>
             <td>Diberikan di : Handil Terusan</td>
         </tr>
         <tr>
             <td><u>Pada tanggal:
-                    <?php echo $format4; ?>
-            </td>
+                    <?php echo $format4; ?><u></td>
         </tr>
         <tr>
             <td>Kepala Desa Handil Terusan</td>
@@ -417,6 +336,7 @@ if (isset($_GET['id_request_skl'])) {
             </td>
         </tr>
     </table>
+
 
 
 

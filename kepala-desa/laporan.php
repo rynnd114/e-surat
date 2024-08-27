@@ -1,9 +1,10 @@
 <?php
-
 include '../konek.php';
 date_default_timezone_set('Asia/Jakarta');
-?>
-<?php
+
+$start_date = isset($_POST['start_date']) ? $_POST['start_date'] : date('Y-m-d');
+$end_date = isset($_POST['end_date']) ? $_POST['end_date'] : date('Y-m-d');
+
 if (!isset($_POST['tampilkan'])) {
 	$sql = "SELECT
                     data_user.nik,
@@ -88,7 +89,6 @@ if (!isset($_POST['tampilkan'])) {
                 WHERE data_request_sku.status = 3 AND data_request_sku.acc BETWEEN '$start_date' AND '$end_date'";
 }
 $query = mysqli_query($konek, $sql);
-
 ?>
 
 <div class="panel-header bg-primary-gradient">
@@ -109,15 +109,15 @@ $query = mysqli_query($konek, $sql);
 						<form action="" method="POST">
 							<div class="form-group">
 								<label for="start_date">Tanggal Mulai:</label>
-								<input type="date" name="start_date" class="form-control" required>
+								<input type="date" name="start_date" class="form-control" required value="<?php echo $start_date; ?>">
 							</div>
 							<div class="form-group">
 								<label for="end_date">Tanggal Akhir:</label>
-								<input type="date" name="end_date" class="form-control" required value="<?php echo date('Y-m-d'); ?>">
+								<input type="date" name="end_date" class="form-control" required value="<?php echo $end_date; ?>">
 							</div>
 							<div class="form-group">
 								<input type="submit" name="tampilkan" value="Tampilkan" class="btn btn-primary btn-sm">
-								<a href="?halaman=laporan_pertahun">
+								<a href="?halaman=laporan">
 									<input type="button" value="Reload" class="btn btn-primary btn-sm">
 								</a>
 							</div>
@@ -156,19 +156,20 @@ $query = mysqli_query($konek, $sql);
 							<tbody>
 								<?php
 								$no = 0;
+								$fmt = new IntlDateFormatter('id_ID', IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Asia/Jakarta', IntlDateFormatter::GREGORIAN, 'd MMMM yyyy');
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 									$no++;
-									$nik = $data['nik'];
 									$nama = $data['nama'];
+									$nik = $data['nik'];
 									$tanggal = $data['acc'];
-									$tgl = date('d F Y', strtotime($tanggal));
+									$tgl = $fmt->format(new DateTime($tanggal));
 									$request = $data['request'];
 								?>
 									<tr>
 										<td><?php echo $no; ?></td>
 										<td><?php echo $tgl; ?></td>
-										<td><?php echo $nik; ?></td>
 										<td><?php echo $nama; ?></td>
+										<td><?php echo $nik; ?></td>
 										<td><?php echo $request; ?></td>
 									</tr>
 								<?php
@@ -181,3 +182,4 @@ $query = mysqli_query($konek, $sql);
 			</div>
 		</div>
 	</div>
+</div>

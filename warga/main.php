@@ -38,7 +38,7 @@
 						<li class="nav-item">
 							<a href="?halaman=tampil_status">
 								<i class="far fa-calendar-check"></i>
-								<p>Status Request</p>
+								<p>Status Pengajuan</p>
 							</a>
 						</li>
 						<?php

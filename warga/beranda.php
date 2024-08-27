@@ -20,7 +20,7 @@
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
 								<h2 class="text-white pb-2 fw-bold">Halo <?php echo $nama;?>!</h2>
-								<h5 class="text-white op-7 mb-2">Sebelum Anda Request Surat Keterangan Lengkapi Biodata Anda, Klik Biodata Anda</h5>
+								<h5 class="text-white op-17 mb-2 fw-bold">Sebelum Anda Mengajukan Surat Keterangan, Lengkapi Biodata Anda Telebih Dahulu, Klik Biodata Anda untuk Melengkapi Biodata</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
 								<a href="?halaman=tampil_pemohon" class="btn btn-sm btn-primary btn-round"><span class="btn-label">
@@ -48,7 +48,7 @@
 									<a href="?halaman=request_skl" class="btn btn-primary btn-round btn-sm mb-3">
 										<span class="btn-label">
 											<i class="fas fa-plus-circle"></i>
-										</span> Request</a>
+										</span> Ajukan</a>
 								</div>
 						</div>
 						<div class="col-md-3 pr-md-0">
@@ -66,7 +66,7 @@
 									<ul class="pricing-content">
 									</ul>
 									<a href="?halaman=request_sku" class="btn btn-success btn-round btn-sm mb-3"><span class="btn-label">
-										<i class="fas fa-plus-circle"></i> Request</a>
+										<i class="fas fa-plus-circle"></i> Ajukan</a>
 								</div>
 						</div>
 						<div class="col-md-3 pr-md-0">
@@ -84,7 +84,7 @@
 									<ul class="pricing-content">
 									</ul>
 									<a href="?halaman=request_skk" class="btn btn-warning btn-round btn-sm mb-3"><span class="btn-label">
-										<i class="fas fa-plus-circle"></i> Request</a>
+										<i class="fas fa-plus-circle"></i> Ajukan</a>
 								</div>
 						</div>
 						<div class="col-md-3 pr-md-0">
@@ -102,7 +102,7 @@
 									<ul class="pricing-content">
 									</ul>
 									<a href="?halaman=request_skd" class="btn btn-secondary btn-round btn-sm mb-3"><span class="btn-label">
-										<i class="fas fa-plus-circle"></i> Request</a>
+										<i class="fas fa-plus-circle"></i> Ajukan</a>
 								</div>
 						</div>
 	</div>

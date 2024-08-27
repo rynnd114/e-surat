@@ -3,27 +3,27 @@
 <script src="../style/js/jquery-2.1.3.min.js"></script>
 <script src="../style/js/sweetalert.min.js"></script>
 <?php
-$id = $nik = $nama = $dusun = $handil = $rt = $tgl = $ktp = $kk = $keperluan = ""; // Inisialisasi variabel
-
 if (isset($_GET['id_request_skd'])) {
-	$id = $_GET['id_request_skd'];
-	$tampil_nik = "SELECT * FROM data_request_skd NATURAL JOIN data_user WHERE id_request_skd=$id";
+    $id = $_GET['id_request_skd'];
+	$tampil_nik = "SELECT data_request_skd.*, data_user.nama AS user_nama FROM data_request_skd JOIN data_user ON data_request_skd.nik = data_user.nik WHERE data_request_skd.id_request_skd=$id";
 	$query = mysqli_query($konek, $tampil_nik);
-	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
-	if ($data) { // Periksa apakah data berhasil diambil
+	
+	if ($query && mysqli_num_rows($query) > 0) {
+		$data = mysqli_fetch_array($query, MYSQLI_ASSOC);
 		$nik = $data['nik'];
-		$id = $data['id_request_skd'];
-		$nama = $data['nama'];
+		$nama = $data['user_nama'];
 		$dusun = $data['dusun'];
 		$handil = $data['handil'];
-		$rt = $data['rt'];
+		$rt = $data['rt_d'];
 		$tgl = $data['tanggal_request'];
-		$format1 = ($tgl != null) ? date('d-m-Y', strtotime($tgl)) : ""; // Tangani nilai null untuk $tgl
+		$format1 = ($tgl != null) ? date('d-m-Y', strtotime($tgl)) : "";
 		$ktp = $data['scan_ktp_d'];
 		$kk = $data['scan_kk_d'];
 		$keperluan = $data['keperluan'];
+	} else {
+		echo "Data tidak ditemukan.";
 	}
-}
+}	
 ?>
 
 <div class="page-inner">
@@ -39,132 +39,26 @@ if (isset($_GET['id_request_skd'])) {
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK</label>
-									<input type="text" name="nik" class="form-control"
-										value="<?= $nik . ' - ' . $nama; ?>" readonly>
+									<input type="text" name="nik" class="form-control" value="<?= $nik . ' - ' . $nama; ?>" readonly>
 								</div>
 							</div>
-							<div class="form-group">
-								<label>Dusun</label>
-								<select name="dusun" value="<?= $dusun; ?>" class="validate[required] form-control">
-									<option value="">Pilih Dusun Anda</option>
-									<option <?php if ($dusun == '001') {
-										echo "selected";
-									} ?> value='001'>001
-									</option>
-									<option <?php if ($dusun == '002') {
-										echo "selected";
-									} ?> value='002'>002
-									</option>
-									<option <?php if ($dusun == '003') {
-										echo "selected";
-									} ?> value='003'>003
-									</option>
-								</select>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<label>Dusun</label>
+									<input type="text" name="dusun" class="form-control" value="<?= $dusun; ?>">
+								</div>
 							</div>
-							<div class="form-group">
-								<label>Handil</label>
-								<select name="handil" value="<?= $handil; ?>" class="validate[required] form-control">
-									<option value="">Pilih Handil Anda</option>
-									<option <?php if ($handil == 'Handil A') {
-										echo "selected";
-									} ?> value='Handil A'>
-										Handil A
-									</option>
-									<option <?php if ($handil == 'Handil B') {
-										echo "selected";
-									} ?> value='Handil B'>
-										Handil B
-									</option>
-									<option <?php if ($handil == 'Handil c') {
-										echo "selected";
-									} ?> value='Handil c'>
-										Handil c
-									</option>
-									<option <?php if ($handil == 'Handil D') {
-										echo "selected";
-									} ?> value='Handil D'>
-										Handil D
-									</option>
-									<option <?php if ($handil == 'Mekar Baru') {
-										echo "selected";
-									} ?> value='Mekar Baru'>
-										Mekar Baru
-									</option>
-									<option <?php if ($handil == 'Handil Lotre') {
-										echo "selected";
-									} ?> value='Handil Lotre'>Handil Lotre
-									</option>
-									<option <?php if ($handil == 'Handil Nilam') {
-										echo "selected";
-									} ?> value='Handil Nilam'>Handil Nilam
-									</option>
-								</select>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<label>Handil</label>
+									<input type="text" name="handil" class="form-control" value="<?= $handil; ?>">
+								</div>
 							</div>
-							<div class="form-group">
-								<label>RT</label>
-								<select name="rt" value="<?= $rt; ?>" class="validate[required] form-control">
-									<option value="">Pilih RT Anda</option>
-									<option <?php if ($rt == '001') {
-										echo "selected";
-									} ?> value='001'>001
-									</option>
-									<option <?php if ($rt == '002') {
-										echo "selected";
-									} ?> value='002'>002
-									</option>
-									<option <?php if ($rt == '003') {
-										echo "selected";
-									} ?> value='003'>003
-									</option>
-									<option <?php if ($rt == '004') {
-										echo "selected";
-									} ?> value='004'>004
-									</option>
-									<option <?php if ($rt == '005') {
-										echo "selected";
-									} ?> value='005'>005
-									</option>
-									<option <?php if ($rt == '006') {
-										echo "selected";
-									} ?> value='006'>006
-									</option>
-									<option <?php if ($rt == '007') {
-										echo "selected";
-									} ?> value='007'>007
-									</option>
-									<option <?php if ($rt == '008') {
-										echo "selected";
-									} ?> value='008'>008
-									</option>
-									<option <?php if ($rt == '009') {
-										echo "selected";
-									} ?> value='009'>009
-									</option>
-									<option <?php if ($rt == '010') {
-										echo "selected";
-									} ?> value='010'>010
-									</option>
-									<option <?php if ($rt == '011') {
-										echo "selected";
-									} ?> value='011'>011
-									</option>
-									<option <?php if ($rt == '012') {
-										echo "selected";
-									} ?> value='012'>012
-									</option>
-									<option <?php if ($rt == '013') {
-										echo "selected";
-									} ?> value='013'>013
-									</option>
-									<option <?php if ($rt == '014') {
-										echo "selected";
-									} ?> value='014'>014
-									</option>
-									<option <?php if ($rt == '015') {
-										echo "selected";
-									} ?> value='015'>015
-									</option>
-								</select>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<label>Rt</label>
+									<input type="text" name="rt" class="form-control" value="<?= $rt; ?>">
+								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
@@ -207,10 +101,11 @@ if (isset($_POST['ubah'])) {
 	$dusun = $_POST['dusun'];
 	$handil = $_POST['handil'];
 	$rt = $_POST['rt'];
-	$nama_ktp = isset($_FILES['scan_ktp_d']);
-	$file_ktp = $_POST['nik'] . "_" . ".jpg";
-	$nama_kk = isset($_FILES['scan_kk_d']);
-	$file_kk = $_POST['nik'] . "_" . ".jpg";
+	$nama_ktp = $_FILES['scan_ktp_d']['name'];
+	$file_ktp = $_POST['nik'] . "_ktp.jpg"; // Nama file ktp disesuaikan dengan kebutuhan
+	$nama_kk = $_FILES['scan_kk_d']['name'];
+	$file_kk = $_POST['nik'] . "_kk.jpg"; // Nama file kk disesuaikan dengan kebutuhan
+
 	$keperluan = $_POST['keperluan'];
 	$sql = "UPDATE data_request_skd SET dusun='$dusun',handil='$handil',rt='$rt', scan_ktp_d='$file_ktp',scan_kk_d='$file_kk',keperluan='$keperluan' WHERE id_request_skd=$id";
 	$query = mysqli_query($konek, $sql);

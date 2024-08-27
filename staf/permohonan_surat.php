@@ -8,7 +8,7 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex align-items-center">
-						<h4 class="card-title">STATUS REQUEST SURAT KETERANGAN KELAHIRAN</h4>
+						<h4 class="card-title">STATUS PENGAJUAN SURAT KETERANGAN KELAHIRAN</h4>
 					</div>
 				</div>
 				<div class="card-body">
@@ -16,7 +16,7 @@
 						<table id="add5" class="display table table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Tanggal Request</th>
+									<th>Tanggal Pengajuan</th>
 									<th>NIK</th>
 									<th>Nama Lengkap</th>
 									<th>Nama Ibu</th>
@@ -41,11 +41,11 @@
 									$kk = $data['scan_kk_l'];
 
 									if ($status == "1") {
-										$status = "<b style='color:blue'>ACC</b>";
+										$status = "<b style='color:blue'>DISETUJUI</b>";
 									} elseif ($status == "0") {
-										$status = "<b style='color:red'>BELUM ACC</b>";
+										$status = "<b style='color:red'>BELUM DISETUJUI</b>";
 									}
-									?>
+								?>
 									<tr>
 										<td>
 											<?php echo $format; ?>
@@ -67,16 +67,14 @@
 										<td>
 											<div class="form-button-action">
 												<a href="?halaman=view_cetak_skl&id_request_skl=<?= $id_request_skl; ?>">
-													<button type="button" data-toggle="tooltip" title=""
-														class="btn btn-link btn-primary btn-lg"
-														data-original-title="View Cetak">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View Cetak">
 														<i class="fa fa-edit"></i>
 													</button>
 												</a>
 											</div>
 										</td>
 									</tr>
-									<?php
+								<?php
 								}
 								?>
 							</tbody>
@@ -91,7 +89,7 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex align-items-center">
-						<h4 class="card-title">STATUS REQUEST SURAT KETERANGAN USAHA</h4>
+						<h4 class="card-title">STATUS PENGAJUAN SURAT KETERANGAN USAHA</h4>
 					</div>
 				</div>
 				<div class="card-body">
@@ -99,7 +97,7 @@
 						<table id="add5" class="display table table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Tanggal Request</th>
+									<th>Tanggal Pengajuan</th>
 									<th>NIK</th>
 									<th>Nama Lengkap</th>
 									<th>Scan KTP</th>
@@ -127,11 +125,11 @@
 									$id_request_sku = $data['id_request_sku'];
 
 									if ($status == "2") {
-										$status = "<b style='color:blue'>SUDAH ACC KEPALA DESA</b>";
+										$status = "<b style='color:blue'>SUDAH DISETUJUI KEPALA DESA</b>";
 									} elseif ($status == "0") {
-										$status = "<b style='color:red'>BELUM ACC</b>";
+										$status = "<b style='color:red'>BELUM DISETUJUI</b>";
 									}
-									?>
+								?>
 									<tr>
 										<td>
 											<?php echo $format; ?>
@@ -142,10 +140,8 @@
 										<td>
 											<?php echo $nama; ?>
 										</td>
-										<td><img src="../style/img/scan_ktp_u/<?php echo $ktp; ?>" width="50" height="50"
-												alt=""></td>
-										<td><img src="../style/img/scan_kk_u/<?php echo $kk; ?>" width="50" height="50"
-												alt="">
+										<td><img src="../style/img/scan_ktp_u/<?php echo $ktp; ?>" width="50" height="50" alt=""></td>
+										<td><img src="../style/img/scan_kk_u/<?php echo $kk; ?>" width="50" height="50" alt="">
 										</td>
 										<td class="fw-bold text-uppercase text-danger op-8">
 											<?php echo $status; ?>
@@ -153,9 +149,7 @@
 										<td>
 											<div class="form-button-action">
 												<a href="?halaman=view_cetak_sku&id_request_sku=<?= $id_request_sku; ?>">
-													<button type="button" data-toggle="tooltip" title=""
-														class="btn btn-link btn-primary btn-lg"
-														data-original-title="View Cetak">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View Cetak">
 														<i class="fa fa-edit"></i>
 													</button>
 												</a>
@@ -163,7 +157,7 @@
 											</div>
 										</td>
 									</tr>
-									<?php
+								<?php
 								}
 								?>
 							</tbody>
@@ -178,7 +172,7 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex align-items-center">
-						<h4 class="card-title">STATUS REQUEST SURAT KETERANGAN KEMATIAN</h4>
+						<h4 class="card-title">STATUS PENGAJUAN SURAT KETERANGAN KEMATIAN</h4>
 					</div>
 				</div>
 				<div class="card-body">
@@ -186,7 +180,7 @@
 						<table id="add5" class="display table table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Tanggal Request</th>
+									<th>Tanggal Pengajuan</th>
 									<th>NIK</th>
 									<th>Nama Almarhum</th>
 									<th>Scan KK</th>
@@ -209,11 +203,11 @@
 
 
 									if ($status == "2") {
-										$status = "<b style='color:blue'>SUDAH ACC KEPALA DESA</b>";
+										$status = "<b style='color:blue'>SUDAH DISETUJUI KEPALA DESA</b>";
 									} elseif ($status == "0") {
-										$status = "<b style='color:red'>BELUM ACC</b>";
+										$status = "<b style='color:red'>BELUM DISETUJUI</b>";
 									}
-									?>
+								?>
 									<tr>
 										<td>
 											<?php echo $format; ?>
@@ -224,8 +218,7 @@
 										<td>
 											<?php echo $nama_almarhum; ?>
 										</td>
-										<td><img src="../style/img/scan_kk_k/<?php echo $kk; ?>" width="50" height="50"
-												alt="">
+										<td><img src="../style/img/scan_kk_k/<?php echo $kk; ?>" width="50" height="50" alt="">
 										</td>
 										<td class="fw-bold text-uppercase text-danger op-8">
 											<?php echo $status; ?>
@@ -233,16 +226,14 @@
 										<td>
 											<div class="form-button-action">
 												<a href="?halaman=view_cetak_skk&id_request_skk=<?= $id_request_skk; ?>">
-													<button type="button" data-toggle="tooltip" title=""
-														class="btn btn-link btn-primary btn-lg"
-														data-original-title="View Cetak">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View Cetak">
 														<i class="fa fa-edit"></i>
 													</button>
 												</a>
 											</div>
 										</td>
 									</tr>
-									<?php
+								<?php
 								}
 								?>
 							</tbody>
@@ -256,7 +247,7 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex align-items-center">
-						<h4 class="card-title">STATUS REQUEST SURAT KETERANGAN DOMISILI</h4>
+						<h4 class="card-title">STATUS PENGAJUAN SURAT KETERANGAN DOMISILI</h4>
 					</div>
 				</div>
 				<form method="POST">
@@ -265,7 +256,7 @@
 							<table id="add5" class="display table table-striped table-hover">
 								<thead>
 									<tr>
-										<th>Tanggal Request</th>
+										<th>Tanggal Pengajuan</th>
 										<th>NIK</th>
 										<th>Nama Lengkap</th>
 										<th>Scan KTP</th>
@@ -277,7 +268,7 @@
 								<tbody>
 
 									<?php
-									$sql = "SELECT * FROM data_request_skd natural join data_user where status=2";
+									$sql = "SELECT * FROM data_request_skd JOIN data_user ON data_request_skd.nik = data_user.nik WHERE status = 2";
 									$query = mysqli_query($konek, $sql);
 									while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 										$tgl = $data['tanggal_request'];
@@ -290,11 +281,11 @@
 										$id_request_skd = $data['id_request_skd'];
 
 										if ($status == "2") {
-											$status = "<b style='color:blue'>SUDAH ACC KEPALA DESA</b>";
+											$status = "<b style='color:blue'>SUDAH DISETUJUI KEPALA DESA</b>";
 										} elseif ($status == "0") {
-											$status = "<b style='color:red'>BELUM ACC</b>";
+											$status = "<b style='color:red'>BELUM DISETUJUI</b>";
 										}
-										?>
+									?>
 										<tr>
 											<td>
 												<?php echo $format; ?>
@@ -305,20 +296,15 @@
 											<td>
 												<?php echo $nama; ?>
 											</td>
-											<td><img src="../style/img/scan_ktp_d/<?php echo $ktp; ?>" width="50" height="50"
-													alt=""></td>
-											<td><img src="../style/img/scan_kk_d/<?php echo $kk; ?>" width="50" height="50"
-													alt=""></td>
+											<td><img src="../style/img/scan_ktp_d/<?php echo $ktp; ?>" width="50" height="50" alt=""></td>
+											<td><img src="../style/img/scan_kk_d/<?php echo $kk; ?>" width="50" height="50" alt=""></td>
 											<td class="fw-bold text-uppercase text-danger op-8">
 												<?php echo $status; ?>
 											</td>
 											<td>
 												<div class="form-button-action">
-													<a
-														href="?halaman=view_cetak_skd&id_request_skd=<?= $id_request_skd; ?>">
-														<button type="button" data-toggle="tooltip" title=""
-															class="btn btn-link btn-primary btn-lg"
-															data-original-title="View Cetak">
+													<a href="?halaman=view_cetak_skd&id_request_skd=<?= $id_request_skd; ?>">
+														<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View Cetak">
 															<i class="fa fa-edit"></i>
 														</button>
 													</a>
@@ -326,7 +312,7 @@
 												</div>
 											</td>
 										</tr>
-										<?php
+									<?php
 									}
 									?>
 									<?php
@@ -341,7 +327,6 @@
 											echo "<script language='javascript'>swal('Gagal...', 'Kirim Gagal!', 'error');</script>";
 											echo '<meta http-equiv="refresh" content="3; url=?halaman=permohonan_surat">';
 										}
-
 									}
 									?>
 								</tbody>

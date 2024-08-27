@@ -82,8 +82,8 @@
 													<textarea class="form-control" name="alamat" rows="2"><?= $alamat?></textarea>
 												</div>				
 												<div class="form-group">
-													<label>Telepon</label>
-													<input type="number" name="telepon" class="form-control" value="<?= $telepon?>" placeholder="Telepon Anda..">
+													<label>Nomor Telepon</label>
+													<input type="number" name="telepon" class="form-control" value="<?= $telepon?>" placeholder="Nomor Telepon Anda..">
 												</div>
 												<div class="form-group">
 													<label>Status Warga</label>
@@ -91,15 +91,16 @@
 														<option disabled="" selected="">Pilih Status Warga</option>
 														<option <?php if( $status_warga=='Kawin'){echo "selected"; } ?> value='Kawin'>Kawin</option>
 														<option <?php if( $status_warga=='Belum Kawin'){echo "selected"; } ?> value='Belum Kawin'>Belum Kawin</option>
-														
+														<option <?php if( $status_warga=='Cerai Hidup'){echo "selected"; } ?> value='Cerai Hidup'>Cerai Hidup</option>
+														<option <?php if( $status_warga=='Cerai Mati'){echo "selected"; } ?> value='Cerai Mati'>Cerai Mati</option>
 													</select>
 												</div>
 											</div>
 									</div>
 								</div>
 								<div class="card-action">
-									<button name="ubah" class="btn btn-success">Ubah</button>
-									<a href="?halaman=beranda" class="btn btn-default">Batal</a>
+									<button name="ubah" class="btn btn-success">Ubah Biodata</button>
+									<a href="?halaman=tampil_pemohon" class="btn btn-default">Batal</a>
 								</div>
 							</div>
 						</div>

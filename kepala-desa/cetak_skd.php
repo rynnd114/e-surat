@@ -58,7 +58,7 @@ if (isset($_GET['id_request_skd'])) {
 
     <table border="0" align="center" style="font-family: Arial; margin-left: 50px">
         <tr>
-            <td><img src="img/lo.png" width="75" height="90" alt=""></td>
+            <td><img src="../style/img/lo.png" width="75" height="90" alt=""></td>
             <td></td>
             <td></td>
             <td></td>

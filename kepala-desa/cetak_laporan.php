@@ -70,7 +70,7 @@ if (isset($_GET['start_date']) && isset($_GET['end_date'])) {
             WHERE data_request_sku.status = 3 AND data_request_sku.acc BETWEEN '$start_date' AND '$end_date'";
     ?>
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="id">
 
     <head>
         <meta charset="UTF-8">
@@ -86,7 +86,10 @@ if (isset($_GET['start_date']) && isset($_GET['end_date'])) {
                     <center>
                         <font size="4"><b>LAPORAN REQUEST SURAT KETERANGAN</b></font><br>
                         <font size="4"><b>DESA HANDIL TERUSAN</b></font><br>
-                        <font size="4"><b>PERIODE <?php echo date('d F Y', strtotime($start_date)) . ' - ' . date('d F Y', strtotime($end_date)); ?></b></font><br>
+                        <font size="4"><b>PERIODE <?php
+                            $fmt = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE, 'Asia/Jakarta', IntlDateFormatter::GREGORIAN);
+                            echo $fmt->format(new DateTime($start_date)) . ' - ' . $fmt->format(new DateTime($end_date));
+                        ?></b></font><br>
                     </center>
                 </td>
             </tr>
@@ -116,9 +119,9 @@ if (isset($_GET['start_date']) && isset($_GET['end_date'])) {
                     $no++;
                     $nama = $data['nama'];
                     $tanggal = $data['acc'];
-                    $tgl_acc = date('d F Y', strtotime($tanggal));
+                    $tgl_acc = $fmt->format(new DateTime($tanggal));
                     $tglreq = $data['tanggal_request'];
-                    $tgl_req = date('d F Y', strtotime($tglreq));
+                    $tgl_req = $fmt->format(new DateTime($tglreq));
                     $request = $data['request'];
                     ?>
                     <tr>
@@ -141,7 +144,7 @@ if (isset($_GET['start_date']) && isset($_GET['end_date'])) {
                 <td>Diberikan di: Handil Terusan</td>
             </tr>
             <tr>
-                <td><b>Pada tanggal: <?php echo date('d F Y'); ?></b></td>
+                <td><b>Pada tanggal: <?php echo $fmt->format(new DateTime()); ?></b></td>
             </tr>
             <tr>
                 <td>Kepala Desa Handil Terusan</td>

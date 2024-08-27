@@ -5,13 +5,16 @@
 <?php
 if (isset($_GET['id_request_skd'])) {
     $id = $_GET['id_request_skd'];
-    $sql = "SELECT * FROM data_request_skd natural join data_user WHERE id_request_skd='$id'";
+    $sql = "SELECT * FROM data_request_skd JOIN data_user ON data_request_skd.nik = data_user.nik WHERE data_request_skd.id_request_skd = '$id'";    
     $query = mysqli_query($konek, $sql);
     $data = mysqli_fetch_array($query, MYSQLI_BOTH);
     $id = $data['id_request_skd'];
     $nik = $data['nik'];
     $nama = $data['nama'];
     $tempat = $data['tempat_lahir'];
+    $dusun = $data['dusun'];
+	$handil = $data['handil'];
+    $rt = $data['rt_d'];
     $tgl = $data['tanggal_lahir'];
     $tgl2 = $data['tanggal_request'];
     $format1 = date('Y', strtotime($tgl2));
@@ -60,6 +63,7 @@ if (isset($_GET['id_request_skd'])) {
     }
 
 }
+
 ?>
 <div class="panel-header bg-primary-gradient">
     <div class="page-inner py-5">
@@ -78,9 +82,9 @@ if (isset($_GET['id_request_skd'])) {
                     <div class="card-tools">
                         <form action="" method="POST">
                             <div class="form-group">
-                                <input type="date" name="tgl_acc" class="form-control">
+                                <input type="date" name="tgl_acc" value="<?php echo date('Y-m-d'); ?>" class="form-control">
                                 <div class="form-group">
-                                    <input type="submit" name="ttd" value="ACC" class="btn btn-primary btn-sm">
+                                    <input type="submit" name="ttd" value="SETUJUI" class="btn btn-primary btn-sm">
                                 </div>
                             </div>
                         </form>
@@ -90,10 +94,10 @@ if (isset($_GET['id_request_skd'])) {
                             $tgl = $_POST['tgl_acc'];
                             $update = mysqli_query($konek, "UPDATE data_request_skd SET acc='$tgl', status=2, keterangan='$ket' WHERE id_request_skd=$id");
                             if ($update) {
-                                echo "<script language='javascript'>swal('Selamat...', 'ACCKepala Desa Berhasil', 'success');</script>";
+                                echo "<script language='javascript'>swal('Selamat...', 'Berhasil Disetujui', 'success');</script>";
                                 echo '<meta http-equiv="refresh" content="3; url=?halaman=belum_acc_skd">';
                             } else {
-                                echo "<script language='javascript'>swal('Gagal...', 'ACCKepala Desa Gagal', 'error');</script>";
+                                echo "<script language='javascript'>swal('Gagal...', 'Gagal Disetujui', 'error');</script>";
                                 echo '<meta http-equiv="refresh" content="3; url=?halaman=view_skd">';
                             }
 
@@ -111,7 +115,7 @@ if (isset($_GET['id_request_skd'])) {
                     <table border="1" align="center">
                         <table border="0" align="center" style="font-family: Arial;">
                             <tr>
-                                <td><img src="img/lo.png" width="90" height="110" alt=""></td>
+                                <td><img src="../style/img/lo.png" width="90" height="110" alt=""></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -282,7 +286,7 @@ if (isset($_GET['id_request_skd'])) {
                             <tr>
                                 <td style="font-size: 14px; font-family: Arial; text-align: justify; line-height: 2.0;">
                                     Yang bersangkutan di atas benar warga/penduduk Desa Handil Terusan dan
-                                    berdomisili di wilayah Handil B RT.012 Dusun 2 Desa Handil Terusan Kecamatan
+                                    berdomisili di wilayah Handil <?php echo $handil; ?> RT. <?php echo $rt; ?> Dusun <?php echo $dusun; ?> Desa Handil Terusan Kecamatan 
                                     Anggana Kabupaten Kutai Kartanegara. Surat keterangan domisili ini berlaku
                                     selama (6 bulan) mulai diterbitkan sampai dengan bulan
                                     <?php echo $format5; ?>.

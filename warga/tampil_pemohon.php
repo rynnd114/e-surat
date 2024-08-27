@@ -37,36 +37,36 @@
                                 <td>: <?= $nik;?></td>
                             </tr>
                             <tr>
-                                <th>NAMA</th>
+                                <th>Nama</th>
                                 <td>:<?= $nama;?></td>
                             </tr>
                             <tr>
-                                <th>TTL</th>
+                                <th>Tempat, Tanggal Lahir</th>
                                 <td>: <?= $tempat.', '.$format;?></td>
                             </tr>
 
                             <tr>
-                                <th>JEKEL</th>
+                                <th>Jenis Kelamin</th>
                                 <td>: <?= $jekel;?></td>
                             </tr>
                             <tr>
-                                <th>AGAMA</th>
+                                <th>Agama</th>
                                 <td>: <?= $agama;?></td>
                             </tr>
                             <tr>
-                                <th>ALAMAT</th>
+                                <th>Alamat</th>
                                 <td>: <?= $alamat;?></td>
                             </tr>
                             <tr>
-                                <th>TELEPON</th>
+                                <th>Nomor Telpon</th>
                                 <td>: <?= $telepon;?></td>
                             </tr>
                             <tr>
-                                <th>PEKERJAAN</th>
+                                <th>Pekerjaan</th>
                                 <td>: <?= $pekerjaan;?></td>
                             </tr>
                             <tr>
-                                <th>STATUS WARGA</th>
+                                <th>Status Warga</th>
                                 <td>: <?= $status_warga;?></td>
                             </tr>
                         </thead>

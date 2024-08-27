@@ -39,7 +39,7 @@ if ($hak_akses == "Staf") {
 	</div>
 	<div class="page-inner">
 		<!-- Card -->
-		<h3 class="fw-bold text-uppercase">TAMPIL REQUEST SURAT KETERANGAN PEMOHON</h3>
+		<h3 class="fw-bold text-uppercase">Lihat Permintaan Surat Keterangan dari Pemohon</h3>
 		<!-- Card With Icon States Background -->
 		<div class="row">
 			<div class="col-sm-6 col-md-3">
@@ -55,7 +55,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKL</p>
+									<p class="card-category">SKL (Surat Keterangan Kelahiran)</p>
 									<?php
 									$sql = "SELECT * FROM data_request_skl WHERE status=0";
 									$query = mysqli_query($konek, $sql);
@@ -89,7 +89,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKU</p>
+									<p class="card-category">SKU (Surat Keterangan Usaha)</p>
 									<?php
 									$sql = "SELECT * FROM data_request_sku WHERE status=0";
 									$query = mysqli_query($konek, $sql);
@@ -123,7 +123,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKK</p>
+									<p class="card-category">SKK (Surat Keterangan Kematian)</p>
 									<?php
 									$sql = "SELECT * FROM data_request_skk WHERE status=0";
 									$query = mysqli_query($konek, $sql);
@@ -157,7 +157,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKD</p>
+									<p class="card-category">SKD (Surat Keterangan Domisili)</p>
 									<?php
 									$sql = "SELECT * FROM data_request_skd WHERE status=0";
 									$query = mysqli_query($konek, $sql);
@@ -251,7 +251,7 @@ if ($hak_akses == "Staf") {
 	</div>
 	<div class="page-inner">
 		<!-- Card -->
-		<h4 class="page-title">TAMPIL REQUEST SURAT KETERANGAN SUDAH ACC STAF</h4>
+		<h4 class="page-title">Tampilkan Permintaan Surat Keterangan yang Sudah Disetujui Staf</h4>
 		<!-- Card With Icon States Background -->
 		<div class="row">
 			<div class="col-sm-6 col-md-3">

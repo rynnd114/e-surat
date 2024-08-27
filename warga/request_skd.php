@@ -36,18 +36,29 @@ $nama = $data['nama'];
 								</div>
 								<div class="form-group">
 									<label>Dusun</label>
-									<input type="text" name="dusun" class="form-control" placeholder="Dusun Anda.."
-										autofocus>
+									<select id="dusun" name="dusun" class="form-control">
+										<option value="">Pilih Dusun</option>
+										<option value="1">Dusun 1</option>
+										<option value="2">Dusun 2</option>
+										<option value="3">Dusun 3</option>
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Handil</label>
-									<input type="text" name="handil" class="form-control" placeholder="Handil Anda.."
-										autofocus>
+									<select id="handil" name="handil" class="form-control">
+										<option value="">Pilih Handil</option>
+										<!-- Opsi Handil akan diisi dengan JavaScript -->
+									</select>
 								</div>
+
 								<div class="form-group">
 									<label>RT</label>
-									<input type="text" name="rt" class="form-control" placeholder="Rt Anda.." autofocus>
+									<select id="rt_d" name="rt_d" class="form-control">
+										<option value="">Pilih RT</option>
+										<!-- Opsi RT akan diisi dengan JavaScript -->
+									</select>
 								</div>
+
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
@@ -77,13 +88,13 @@ if (isset($_POST['kirim'])) {
 	$keperluan = $_POST['keperluan'];
 	$dusun = $_POST['dusun'];
 	$handil = $_POST['handil'];
-	$rt = $_POST['rt'];
+	$rt_d = $_POST['rt_d'];
 	$timestamp = time();
 	$nama_ktp_d = isset($_FILES['scan_ktp_d']);
-    $file_ktp_d = $_POST['nik'] . "_ktp_" . $timestamp . ".jpg";
+	$file_ktp_d = $_POST['nik'] . "_ktp_" . $timestamp . ".jpg";
 	$nama_kk_d = isset($_FILES['scan_kk_d']);
-    $file_kk_d = $_POST['nik'] . "_kk_" . $timestamp . ".jpg";
-	$sql = "INSERT INTO data_request_skd (nik,scan_ktp_d,scan_kk_d,keperluan,dusun,handil,rt) VALUES ('$nik','$file_ktp_d','$file_kk_d','$keperluan','$dusun','$handil','$rt')";
+	$file_kk_d = $_POST['nik'] . "_kk_" . $timestamp . ".jpg";
+	$sql = "INSERT INTO data_request_skd (nik,scan_ktp_d,scan_kk_d,keperluan,dusun,handil,rt_d) VALUES ('$nik','$file_ktp_d','$file_kk_d','$keperluan','$dusun','$handil','$rt_d')";
 	$query = mysqli_query($konek, $sql) or die(mysqli_error($konek));
 
 	if ($query) {
@@ -98,3 +109,78 @@ if (isset($_POST['kirim'])) {
 }
 
 ?>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+    const dusunSelect = document.getElementById('dusun');
+    const handilSelect = document.getElementById('handil');
+    const rtSelect = document.getElementById('rt_d');
+
+    const handilOptions = {
+        "1": ["D"], // Handil D hanya muncul jika Dusun 1 dipilih
+        "2": ["A", "B", "C"], // Handil A, B, dan C hanya muncul jika Dusun 2 dipilih
+        "3": ["Mekar Baru", "Handil Lotrai", "Handil Nilam"] // Handil lainnya untuk Dusun 3
+    };
+
+    const rtOptions = {
+        "1": [1, 2, 3, 4, 5],
+        "2": [6, 7, 8, 11, 12, 14],
+        "3": [9, 10, 13, 15]
+    };
+
+    const handilRtOptions = {
+        "D": [1, 2, 3, 4, 5], // Handil D mencakup semua RT di Dusun 1
+        "A": [8, 14],
+        "B": [7, 12],
+        "C": [6, 11],
+        "Mekar Baru": [13],
+        "Handil Lotrai": [9],
+        "Handil Nilam": [10, 15]
+    };
+
+    function updateHandilOptions() {
+        const selectedDusun = dusunSelect.value;
+
+        // Reset dan isi ulang opsi Handil berdasarkan Dusun yang dipilih
+        handilSelect.innerHTML = '<option value="">Pilih Handil</option>';
+        if (selectedDusun && handilOptions[selectedDusun]) {
+            handilOptions[selectedDusun].forEach(handil => {
+                const option = document.createElement('option');
+                option.value = handil;
+                option.textContent = handil;
+                handilSelect.appendChild(option);
+            });
+        }
+
+        // Reset opsi RT setiap kali Dusun berubah
+        updateRtOptions();
+    }
+
+    function updateRtOptions() {
+        const selectedDusun = dusunSelect.value;
+        const selectedHandil = handilSelect.value;
+
+        // Ambil RT berdasarkan Dusun dan Handil
+        let availableRt = [];
+        if (selectedDusun && rtOptions[selectedDusun]) {
+            availableRt = rtOptions[selectedDusun];
+        }
+
+        if (selectedHandil && handilRtOptions[selectedHandil]) {
+            availableRt = availableRt.filter(rt => handilRtOptions[selectedHandil].includes(rt));
+        }
+
+        // Reset dan isi ulang opsi RT
+        rtSelect.innerHTML = '<option value="">Pilih RT</option>';
+        availableRt.forEach(rt => {
+            const option = document.createElement('option');
+            option.value = rt;
+            option.textContent = `RT ${rt}`;
+            rtSelect.appendChild(option);
+        });
+    }
+
+    dusunSelect.addEventListener('change', updateHandilOptions);
+    handilSelect.addEventListener('change', updateRtOptions);
+});
+</script>
