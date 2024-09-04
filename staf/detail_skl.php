@@ -36,17 +36,16 @@ if (isset($_GET['id_request_skl'])) {
 					<div class="card-header">
 						<div class="form-group">
 							<label>Keterangan</label>
-							<input type="text" name="keterangan" class="form-control" autofocus><br>
-							<button type="submit" name="ubah" class="btn btn-info btn-border btn-round btn-sm">
-								<span class="btn-label">
-									<i class="fas fa-edit"></i>
-								</span>
-								Ubah
-							</button>
-							<a href="?halaman=acc_skl" class="btn btn-info btn-border btn-round btn-sm">
-								Batal
-							</a>
 						</div>
+						<button type="submit" name="ubah" class="btn btn-info btn-border btn-round btn-sm">
+							<span class="btn-label">
+								<i class="fas fa-edit"></i>
+							</span>
+							Ubah
+						</button>
+						<a href="?halaman=acc_skl" class="btn btn-info btn-border btn-round btn-sm">
+							Kembali
+						</a>
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -83,26 +82,26 @@ if (isset($_GET['id_request_skl'])) {
 								<select name="agama_istri" class="form-control">
 									<option value="<?= $agama_istri; ?>">Pilih Agama Anda</option>
 									<option <?php if ($agama_istri == 'Islam') {
-										echo "selected";
-									} ?> value='Islam'>Islam
+												echo "selected";
+											} ?> value='Islam'>Islam
 									</option>
 									<option <?php if ($agama_istri == 'Katolik') {
-										echo "selected";
-									} ?> value='Kristen'>
+												echo "selected";
+											} ?> value='Kristen'>
 										Katolik
 									</option>
 									<option <?php if ($agama_istri == 'Kristen') {
-										echo "selected";
-									} ?> value='Kristen'>
+												echo "selected";
+											} ?> value='Kristen'>
 										Kristen
 									</option>
 									<option <?php if ($agama_istri == 'Hindu') {
-										echo "selected";
-									} ?> value='Hindu'>Hindu
+												echo "selected";
+											} ?> value='Hindu'>Hindu
 									</option>
 									<option <?php if ($agama_istri == 'Budha') {
-										echo "selected";
-									} ?> value='Budha'>Budha
+												echo "selected";
+											} ?> value='Budha'>Budha
 									</option>
 								</select>
 								<div class="form-group">
@@ -126,13 +125,13 @@ if (isset($_GET['id_request_skl'])) {
 								<select name="jenis_kelamin_anak" class="form-control">
 									<option value="">Jenis Kelamin Anak</option>
 									<option <?php if ($jenis_kelamin_anak == 'laki-laki') {
-										echo "selected";
-									} ?>
+												echo "selected";
+											} ?>
 										value='laki-laki'>Laki-Laki
 									</option>
 									<option <?php if ($jenis_kelamin_anak == 'perempuan') {
-										echo "selected";
-									} ?>
+												echo "selected";
+											} ?>
 										value='perempuan'>Perempuan
 									</option>
 								</select>
@@ -219,7 +218,6 @@ if (isset($_POST['ubah'])) {
 		if ($quey == 1) {
 			echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
 			echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skl">';
-
 		}
 	} else {
 		echo "<script language='javascript'>swal('Gagal...', 'Ubah Gagal', 'error');</script>";

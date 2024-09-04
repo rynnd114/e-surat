@@ -102,18 +102,6 @@
                                                     <td><?php echo $request;?></td>
 													<td class="fw-bold text-uppercase text-danger op-8"><?php echo $status;?></td>
                                                 </tr>
-												<!-- <?php
-															if(isset($_GET['id_request_skl'])){
-																$hapus = mysqli_query($konek,"DELETE FROM data_request_skl WHERE id_request_skl=$id");
-																if($hapus){
-																	echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>" ;
-																	echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_status">';
-																}else{
-																	echo "<script language='javascript'>swal('Gagal...', 'Hapus Gagal', 'error');</script>" ;
-																	echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_status">';
-																}
-															}
-														?> -->
                                                 <?php
                                                     }
                                                 ?>

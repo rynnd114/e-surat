@@ -48,64 +48,64 @@ $rt = $data['rt'];
 								<select name="rt_u" class="form-control" placeholder="Alamat Usaha Anda.." autofocus>>
 									<option disabled="" value="">Pilih RT Alamat Usaha Anda</option>
 									<option <?php if ($rt == '001') {
-										echo "selected";
-									} ?> value='001'>001
+												echo "selected";
+											} ?> value='001'>001
 									</option>
 									<option <?php if ($rt == '002') {
-										echo "selected";
-									} ?> value='002'>002
+												echo "selected";
+											} ?> value='002'>002
 									</option>
 									<option <?php if ($rt == '003') {
-										echo "selected";
-									} ?> value='003'>003
+												echo "selected";
+											} ?> value='003'>003
 									</option>
 									<option <?php if ($rt == '004') {
-										echo "selected";
-									} ?> value='004'>004
+												echo "selected";
+											} ?> value='004'>004
 									</option>
 									<option <?php if ($rt == '005') {
-										echo "selected";
-									} ?> value='005'>005
+												echo "selected";
+											} ?> value='005'>005
 									</option>
 									<option <?php if ($rt == '006') {
-										echo "selected";
-									} ?> value='006'>006
+												echo "selected";
+											} ?> value='006'>006
 									</option>
 									<option <?php if ($rt == '007') {
-										echo "selected";
-									} ?> value='007'>007
+												echo "selected";
+											} ?> value='007'>007
 									</option>
 									<option <?php if ($rt == '008') {
-										echo "selected";
-									} ?> value='008'>008
+												echo "selected";
+											} ?> value='008'>008
 									</option>
 									<option <?php if ($rt == '009') {
-										echo "selected";
-									} ?> value='009'>009
+												echo "selected";
+											} ?> value='009'>009
 									</option>
 									<option <?php if ($rt == '010') {
-										echo "selected";
-									} ?> value='010'>010
+												echo "selected";
+											} ?> value='010'>010
 									</option>
 									<option <?php if ($rt == '011') {
-										echo "selected";
-									} ?> value='011'>011
+												echo "selected";
+											} ?> value='011'>011
 									</option>
 									<option <?php if ($rt == '012') {
-										echo "selected";
-									} ?> value='012'>012
+												echo "selected";
+											} ?> value='012'>012
 									</option>
 									<option <?php if ($rt == '013') {
-										echo "selected";
-									} ?> value='013'>013
+												echo "selected";
+											} ?> value='013'>013
 									</option>
 									<option <?php if ($rt == '014') {
-										echo "selected";
-									} ?> value='014'>014
+												echo "selected";
+											} ?> value='014'>014
 									</option>
 									<option <?php if ($rt == '015') {
-										echo "selected";
-									} ?> value='015'>015
+												echo "selected";
+											} ?> value='015'>015
 									</option>
 								</select>
 							</div>
@@ -153,11 +153,18 @@ if (isset($_POST['kirim'])) {
 	$alamat_usaha = $_POST['alamat_usaha'];
 	$rt_u = $_POST['rt_u'];
 	$timestamp = time();
-	$nama_ktp_u = isset($_FILES['scan_ktp_u']);
-    $file_ktp_u = $_POST['nik'] . "_ktp_" . $timestamp . ".jpg";
-	$nama_kk_u = isset($_FILES['scan_kk_u']);
-    $file_kk_u = $_POST['nik'] . "_kk_" . $timestamp . ".jpg";
-	$sql = "INSERT INTO data_request_sku (nik,scan_ktp_u,scan_kk_u,nama_usaha,jenis_usaha,alamat_usaha,rt_u) VALUES ('$nik','$file_ktp_u','$file_kk_u','$nama_usaha','$jenis_usaha','$alamat_usaha','$rt_u')";
+	$file_ktp_u = $_POST['nik'] . "_ktp_" . $timestamp . ".jpg";
+	$file_kk_u = $_POST['nik'] . "_kk_" . $timestamp . ".jpg";
+
+	// Ambil nomor surat terbaru
+	$tahun_sekarang = date('Y');
+	$sql_get_latest_nomor = "SELECT IFNULL(MAX(nomor_surat), 0) + 1 AS new_nomor_surat FROM data_request_sku WHERE YEAR(tanggal_request) = '$tahun_sekarang'";
+	$result_nomor = mysqli_query($konek, $sql_get_latest_nomor);
+	$row_nomor = mysqli_fetch_assoc($result_nomor);
+	$nomor_surat_baru = $row_nomor['new_nomor_surat'];
+
+	// Simpan data dengan nomor surat
+	$sql = "INSERT INTO data_request_sku (nik, scan_ktp_u, scan_kk_u, nama_usaha, jenis_usaha, alamat_usaha, rt_u, nomor_surat, tahun) VALUES ('$nik','$file_ktp_u','$file_kk_u','$nama_usaha','$jenis_usaha','$alamat_usaha','$rt_u', '$nomor_surat_baru', '$tahun_sekarang')";
 	$query = mysqli_query($konek, $sql) or die(mysqli_error($konek));
 
 	if ($query) {

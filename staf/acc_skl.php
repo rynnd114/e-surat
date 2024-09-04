@@ -50,7 +50,7 @@
 										} elseif ($status == "0") {
 											$status = "<b style='color:red'>BELUM ACC</b>";
 										}
-										?>
+									?>
 										<tr>
 											<td>
 												<?php echo $format; ?>
@@ -70,20 +70,20 @@
 											<td><img src="../style/img/scan_kk_l/<?php echo $kk; ?>" width="50" height="50"
 													alt=""></td>
 											<td>
+												<input type="hidden" name="id_request_skl" value="<?php echo $id_request_skl; ?>">
+												<button type="submit" name="acc" class="btn btn-primary btn-sm" value="<?php echo $id_request_skl; ?>">SETUJUI</button>
+												<div class="my-2 d-flex justify-content-between align-items-center">
 
-												<input type="checkbox" name="check[$i]"
-													value="<?php echo $id_request_skl; ?>">
-												<input type="submit" name="acc" class="btn btn-primary btn-sm" value="ACC">
+												</div>
+												<a href="download_word_skl.php?id_request_skl=<?php echo $id_request_skl; ?>" class="btn btn-sm btn-success">DOWNLOAD FILE</a>
 												<div class="form-button-action">
-													<a type="button" data-toggle="tooltip" title=""
-														class="btn btn-link btn-primary btn-lg"
-														data-original-title="Cek Data"
-														href="?halaman=detail_skl&id_request_skl=<?= $id_request_skl; ?>">
+													<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_skl&id_request_skl=<?= $id_request_skl; ?>">
 														<i class="fa fa-edit"></i></a>
+
 												</div>
 											</td>
 										</tr>
-										<?php
+									<?php
 									}
 									?>
 								</tbody>
@@ -99,22 +99,21 @@
 
 <?php
 if (isset($_POST['acc'])) {
-	if (isset($_POST['check'])) {
-		foreach ($_POST['check'] as $value) {
-			// echo $value;
-			$ubah = "UPDATE data_request_skl set status =1 where id_request_skl = $value";
+	$id_request_skl = $_POST['acc']; // Mendapatkan id_request_skl dari tombol "SETUJUI"
+	$keterangan = "Menunggu Persetujuan Kepala Desa"; // Keterangan otomatis yang diubah
 
-			$query = mysqli_query($konek, $ubah);
+	// Menggunakan prepared statement untuk query update
+	$ubah = "UPDATE data_request_skl SET status = 1, keterangan = ? WHERE id_request_skl = ?";
+	$stmt = mysqli_prepare($konek, $ubah); // Menyiapkan statement
+	mysqli_stmt_bind_param($stmt, 'si', $keterangan, $id_request_skl); // Mengikat parameter (s = string, i = integer)
+	$query = mysqli_stmt_execute($stmt); // Eksekusi statement
 
-			if ($query) {
-				echo "<script language='javascript'>swal('Selamat...', 'ACC Staf Berhasil!', 'success');</script>";
-				echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skl">';
-			} else {
-				echo "<script language='javascript'>swal('Gagal...', 'ACC Staf Gagal!', 'error');</script>";
-				echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skl">';
-			}
-
-		}
+	if ($query) {
+		echo "<script language='javascript'>swal('Selamat...', 'Persetujuan Berhasil, Menunggu Persetujuan Kepala Desa!', 'success');</script>";
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skl">';
+	} else {
+		echo "<script language='javascript'>swal('Gagal...', 'Persetujuan Gagal!', 'error');</script>";
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skl">';
 	}
 }
 ?>

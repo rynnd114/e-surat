@@ -78,15 +78,16 @@
 												<?php echo $alamat_usaha; ?>
 											</td>
 											<td>
-												<input type="checkbox" name="check[$i]"
-													value="<?php echo $id_request_sku; ?>">
-												<input type="submit" name="acc" class="btn btn-primary btn-sm" value="ACC">
+												<input type="hidden" name="id_request_sku" value="<?php echo $id_request_sku; ?>">
+												<button type="submit" name="acc" class="btn btn-primary btn-sm" value="<?php echo $id_request_sku; ?>">SETUJUI</button>
+												<div class="my-2 d-flex justify-content-between align-items-center">
+
+												</div>
+												<a href="download_word_sku.php?id_request_sku=<?php echo $id_request_sku; ?>" class="btn btn-sm btn-success">DOWNLOAD FILE</a>
 												<div class="form-button-action">
-													<a type="button" data-toggle="tooltip" title=""
-														class="btn btn-link btn-primary btn-lg"
-														data-original-title="Cek Data"
-														href="?halaman=detail_sku&id_request_sku=<?= $id_request_sku; ?>">
+													<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_sku&id_request_sku=<?= $id_request_sku; ?>">
 														<i class="fa fa-edit"></i></a>
+
 												</div>
 											</td>
 										</tr>
@@ -103,24 +104,24 @@
 
 	</div>
 </div>
+
 <?php
 if (isset($_POST['acc'])) {
-	if (isset($_POST['check'])) {
-		foreach ($_POST['check'] as $value) {
-			// echo $value;
-			$ubah = "UPDATE data_request_sku set status =1 where id_request_sku = $value";
+	$id_request_sku = $_POST['acc']; // Mendapatkan id_request_sku dari tombol "SETUJUI"
+	$keterangan = "Menunggu Persetujuan Kepala Desa"; // Keterangan otomatis yang diubah
 
-			$query = mysqli_query($konek, $ubah);
+	// Menggunakan prepared statement untuk query update
+	$ubah = "UPDATE data_request_sku SET status = 1, keterangan = ? WHERE id_request_sku = ?";
+	$stmt = mysqli_prepare($konek, $ubah); // Menyiapkan statement
+	mysqli_stmt_bind_param($stmt, 'si', $keterangan, $id_request_sku); // Mengikat parameter (s = string, i = integer)
+	$query = mysqli_stmt_execute($stmt); // Eksekusi statement
 
-			if ($query) {
-				echo "<script language='javascript'>swal('Selamat...', 'ACC Staf Berhasil!', 'success');</script>";
-				echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
-			} else {
-				echo "<script language='javascript'>swal('Gagal...', 'ACC Staf Gagal!', 'error');</script>";
-				echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
-			}
-
-		}
+	if ($query) {
+		echo "<script language='javascript'>swal('Selamat...', 'Persetujuan Berhasil, Menunggu Persetujuan Kepala Desa!', 'success');</script>";
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
+	} else {
+		echo "<script language='javascript'>swal('Gagal...', 'Persetujuan Gagal!', 'error');</script>";
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
 	}
 }
 ?>

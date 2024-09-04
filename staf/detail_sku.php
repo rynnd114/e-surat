@@ -36,18 +36,16 @@ if (isset($_GET['id_request_sku'])) {
 					<div class="card-header">
 						<div class="form-group">
 							<label>Keterangan</label>
-							<input type="text" name="keterangan" class="form-control" autofocus><br>
-
-							<button type="submit" name="ubah" class="btn btn-info btn-border btn-round btn-sm">
+						</div>
+						<button type="submit" name="ubah" class="btn btn-info btn-border btn-round btn-sm">
 								<span class="btn-label">
 									<i class="fas fa-edit"></i>
 								</span>
 								Ubah
 							</button>
 							<a href="?halaman=acc_sku" class="btn btn-info btn-border btn-round btn-sm">
-								Batal
+								Kembali
 							</a>
-						</div>
 					</div>
 					<div class="card-body">
 						<div class="row">

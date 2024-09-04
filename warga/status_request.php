@@ -42,6 +42,7 @@
 									$kk = $data['scan_kk_l'];
 									$keterangan = $data['keterangan'];
 									$id_request_skl = $data['id_request_skl'];
+									$scan_skl = $data['scan_skl']; // Kolom untuk file yang sudah diupload Kepala Desa
 
 									switch ($status) {
 										case "1":
@@ -94,6 +95,11 @@
 														<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
 															<i class="fa fa-times"></i>
 														</button>
+													</a>
+												<?php } ?>
+												<?php if ($status == "3") { ?>
+													<a href="../staf/downloads/<?php echo $scan_skl; ?>" class="btn btn-link btn-primary btn-sm" download data-toggle="tooltip" title="Download">
+														<i class="fa fa-download"></i> Download
 													</a>
 												<?php } ?>
 											</div>
@@ -153,6 +159,7 @@
 									$alamat_usaha = $data['alamat_usaha'];
 									$keterangan = $data['keterangan'];
 									$id_request_sku = $data['id_request_sku'];
+									$scan_sku = $data['scan_sku']; // Kolom untuk file yang sudah diupload Kepala Desa
 
 									switch ($status) {
 										case "1":
@@ -210,6 +217,12 @@
 														</button>
 													</a>
 												<?php } ?>
+
+												<?php if ($status =="3") { ?>
+													<a href="../staf/downloads/<?php echo $scan_sku; ?>" class="btn btn-link btn-primary btn-sm" download data-toggle="tooltip" title="Download">
+														<i class="fa fa-download"></i> Download
+													</a>
+												<?php } ?>
 											</div>
 										</td>
 									</tr>
@@ -260,6 +273,7 @@
 									$kk = $data['scan_kk_k'];
 									$keterangan = $data['keterangan'];
 									$id_request_skk = $data['id_request_skk'];
+									$scan_skk = $data['scan_skk']; // Kolom untuk file yang sudah diupload Kepala Desa
 
 									switch ($status) {
 										case "1":
@@ -307,6 +321,11 @@
 														<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
 															<i class="fa fa-times"></i>
 														</button>
+													</a>
+												<?php } ?>
+												<?php if ($status == "3") { ?>
+													<a href="../staf/downloads/<?php echo $scan_skk; ?>" class="btn btn-link btn-primary btn-sm" download data-toggle="tooltip" title="Download">
+														<i class="fa fa-download"></i> Download
 													</a>
 												<?php } ?>
 											</div>
@@ -362,6 +381,7 @@
 									$keterangan = $data['keterangan'];
 									$keperluan = $data['keperluan'];
 									$id_request_skd = $data['id_request_skd'];
+									$scan_skd = $data['scan_skd']; // Kolom untuk file yang sudah diupload Kepala Desa
 
 									switch ($status) {
 										case "1":
@@ -413,6 +433,11 @@
 														<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
 															<i class="fa fa-times"></i>
 														</button>
+													</a>
+												<?php } ?>
+												<?php if ($status == "3") { ?>
+													<a href="../staf/downloads/<?php echo $scan_skd; ?>" class="btn btn-link btn-primary btn-sm" download data-toggle="tooltip" title="Download">
+														<i class="fa fa-download"></i> Download
 													</a>
 												<?php } ?>
 											</div>

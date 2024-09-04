@@ -45,9 +45,9 @@
 										$id_request_skd = $data['id_request_skd'];
 
 										if ($status == "1") {
-											$status = "<b style='color:blue'>ACC</b>";
+											$status = "<b style='color:blue'>DISETUJUI</b>";
 										} elseif ($status == "0") {
-											$status = "<b style='color:red'>BELUM ACC</b>";
+											$status = "<b style='color:red'>BELUM DISETUJUI</b>";
 										}
 									?>
 										<tr>
@@ -57,10 +57,16 @@
 											<td><img src="../style/img/scan_ktp_d/<?php echo $ktp; ?>" width="50" height="50" alt=""></td>
 											<td><img src="../style/img/scan_kk_d/<?php echo $kk; ?>" width="50" height="50" alt=""></td>
 											<td>
-												<input type="submit" name="acc" class="btn btn-primary btn-sm" value="SETUJUI">
+											<input type="hidden" name="id_request_skd" value="<?php echo $id_request_skd; ?>">
+											<button type="submit" name="acc" class="btn btn-primary btn-sm" value="<?php echo $id_request_skd; ?>">SETUJUI</button>
+											<div class="my-2 d-flex justify-content-between align-items-center">
+
+												</div>
+												<a href="download_word_skd.php?id_request_skd=<?php echo $id_request_skd; ?>" class="btn btn-sm btn-success">DOWNLOAD FILE</a>
 												<div class="form-button-action">
 													<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_skd&id_request_skd=<?= $id_request_skd; ?>">
 														<i class="fa fa-edit"></i></a>
+
 												</div>
 											</td>
 										</tr>
@@ -80,17 +86,21 @@
 
 <?php
 if (isset($_POST['acc'])) {
-		// echo $value;
-		$ubah = "UPDATE data_request_skd set status =1 where id_request_skd";
+	$id_request_skd = $_POST['acc']; // Mendapatkan id_request_skd dari tombol "SETUJUI"
+	$keterangan = "Menunggu Persetujuan Kepala Desa"; // Keterangan otomatis yang diubah
 
-		$query = mysqli_query($konek, $ubah);
+	// Menggunakan prepared statement untuk query update
+	$ubah = "UPDATE data_request_skd SET status = 1, keterangan = ? WHERE id_request_skd = ?";
+	$stmt = mysqli_prepare($konek, $ubah); // Menyiapkan statement
+	mysqli_stmt_bind_param($stmt, 'si', $keterangan, $id_request_skd); // Mengikat parameter (s = string, i = integer)
+	$query = mysqli_stmt_execute($stmt); // Eksekusi statement
 
-		if ($query) {
-			echo "<script language='javascript'>swal('Selamat...', 'Persetujuan Berhasil!', 'success');</script>";
-			echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skd">';
-		} else {
-			echo "<script language='javascript'>swal('Gagal...', 'Persetujuan Gagal!', 'error');</script>";
-			echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skd">';
-		}
+	if ($query) {
+		echo "<script language='javascript'>swal('Selamat...', 'Persetujuan Berhasil, Menunggu Persetujuan Kepala Desa!', 'success');</script>";
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skd">';
+	} else {
+		echo "<script language='javascript'>swal('Gagal...', 'Persetujuan Gagal!', 'error');</script>";
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_skd">';
+	}
 }
 ?>

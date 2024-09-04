@@ -9,7 +9,7 @@ if (!isset($_POST['tampilkan'])) {
 	$sql = "SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_skl.acc,
+                    data_request_skl.tanggal_request,
                     data_request_skl.request
                 FROM
                     data_user
@@ -19,7 +19,7 @@ if (!isset($_POST['tampilkan'])) {
                 SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_skd.acc,
+                    data_request_skd.tanggal_request,
                     data_request_skd.request
                 FROM
                     data_user
@@ -29,7 +29,7 @@ if (!isset($_POST['tampilkan'])) {
                 SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_skk.acc,
+                    data_request_skk.tanggal_request,
                     data_request_skk.request
                 FROM
                     data_user
@@ -39,7 +39,7 @@ if (!isset($_POST['tampilkan'])) {
                 SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_sku.acc,
+                    data_request_sku.tanggal_request,
                     data_request_sku.request
                 FROM
                     data_user
@@ -51,42 +51,42 @@ if (!isset($_POST['tampilkan'])) {
 	$sql = "SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_skl.acc,
+                    data_request_skl.tanggal_request,
                     data_request_skl.request
                 FROM
                     data_user
                 INNER JOIN data_request_skl ON data_request_skl.nik = data_user.nik
-                WHERE data_request_skl.status = 3 AND data_request_skl.acc BETWEEN '$start_date' AND '$end_date'
+                WHERE data_request_skl.status = 3 AND data_request_skl.tanggal_request BETWEEN '$start_date' AND '$end_date'
                 UNION
                 SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_skd.acc,
+                    data_request_skd.tanggal_request,
                     data_request_skd.request
                 FROM
                     data_user
                 INNER JOIN data_request_skd ON data_request_skd.nik = data_user.nik
-                WHERE data_request_skd.status = 3 AND data_request_skd.acc BETWEEN '$start_date' AND '$end_date'
+                WHERE data_request_skd.status = 3 AND data_request_skd.tanggal_request BETWEEN '$start_date' AND '$end_date'
                 UNION
                 SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_skk.acc,
+                    data_request_skk.tanggal_request,
                     data_request_skk.request
                 FROM
                     data_user
                 INNER JOIN data_request_skk ON data_request_skk.nik = data_user.nik
-                WHERE data_request_skk.status = 3 AND data_request_skk.acc BETWEEN '$start_date' AND '$end_date'
+                WHERE data_request_skk.status = 3 AND data_request_skk.tanggal_request BETWEEN '$start_date' AND '$end_date'
                 UNION
                 SELECT
                     data_user.nik,
                     data_user.nama,
-                    data_request_sku.acc,
+                    data_request_sku.tanggal_request,
                     data_request_sku.request
                 FROM
                     data_user
                 INNER JOIN data_request_sku ON data_request_sku.nik = data_user.nik
-                WHERE data_request_sku.status = 3 AND data_request_sku.acc BETWEEN '$start_date' AND '$end_date'";
+                WHERE data_request_sku.status = 3 AND data_request_sku.tanggal_request BETWEEN '$start_date' AND '$end_date'";
 }
 $query = mysqli_query($konek, $sql);
 ?>
@@ -147,7 +147,7 @@ $query = mysqli_query($konek, $sql);
 							<thead>
 								<tr>
 									<th scope="col">No</th>
-									<th scope="col">Tanggal ACC</th>
+									<th scope="col">Tanggal Tanggal Request</th>
 									<th scope="col">Nama</th>
 									<th scope="col">Nik</th>
 									<th scope="col">Request</th>
@@ -161,7 +161,7 @@ $query = mysqli_query($konek, $sql);
 									$no++;
 									$nama = $data['nama'];
 									$nik = $data['nik'];
-									$tanggal = $data['acc'];
+									$tanggal = $data['tanggal_request'];
 									$tgl = $fmt->format(new DateTime($tanggal));
 									$request = $data['request'];
 								?>
